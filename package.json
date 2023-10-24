@@ -1,5 +1,5 @@
 {
-	"name": "project1",
+	"name": "TV-shows",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
