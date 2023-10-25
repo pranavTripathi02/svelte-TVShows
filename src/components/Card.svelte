@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     margin: 1rem;
     /* min-height: 12rem; */
     height: 100%;

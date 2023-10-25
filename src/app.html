@@ -1,61 +1,51 @@
 <!DOCTYPE html>
-<html 
-    lang="en" 
-    data-theme="dark"
-    >
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="%sveltekit.assets%/favicon.png" />
-        <link href="./../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        %sveltekit.head%
-    </head>
-    <body data-sveltekit-preload-data="hover">
-        <div 
-            style="display: contents">%sveltekit.body%</div>
-        <style>
-    /* :root { */
-    /*     --bg: #e4e4e4; */
-    /* } */
-    /* https://www.realtimecolors.com/?colors=f6f7fe-010209-f6eda2-03051c-d5c215&fonts=Poppins-Poppins */
-    :root[data-theme="light"] {
-  --text:			rgba(1, 2, 9);
-  --background:		rgba(246, 247, 254);
-  --primary:		rgba(93, 84, 9);
-  --secondary:		rgba(227, 229, 252);
-  --accent:			rgba(234, 215, 42);
-  --rgbtext:			1, 2, 9;
-  --rgbbackground:		246, 247, 254;
-  --rgbprimary:			93, 84, 9;
-  --rgbsecondary:		227, 229, 252;
-  --rgbaccent:			234, 215, 42;
-}
-:root[data-theme="dark"] {
-  --text:			rgba(246, 247, 254);
-  --background:		rgba(1, 2, 9);
-  --primary:		rgba(246, 237, 162);
-  --secondary:		rgba(3, 5, 28);
-  --accent:			rgba(213, 194, 21);
-  --rgbtext:			246, 247, 254;
-  --rgbbackground:		1, 2, 9;
-  --rgbprimary:			246, 237, 162;
-  --rgbsecondary:		3, 5, 28;
-  --rgbaccent:			213, 194, 21;
-}
+<html lang="en" data-theme="dark">
 
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <link href="./../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    %sveltekit.head%
+</head>
 
-    body {
-        background-color: var(--background);
-        color: var(--text);
-    }
+<body data-sveltekit-preload-data="hover">
+    <div style="display: contents">%sveltekit.body%
+    </div>
+    <div>
+        Helo
+    </div>
 
-    /* @media screen and (min-width: 640px) { */
-    /*     body { */
-    /*         width: 75%; */
-    /*         /* border: 10px solid var(--secondary); */ */
-    /*         margin: auto; */
-    /*     } */
-    /* } */
-        </style>
-    </body>
+    <style>
+        :root[data-theme="light"] {
+            --text: rgba(1, 2, 9);
+            --background: rgba(246, 247, 254);
+            --primary: rgba(93, 84, 9);
+            --secondary: rgba(227, 229, 252);
+            --accent: rgba(234, 215, 42);
+            --rgbtext: 1, 2, 9;
+            --rgbbackground: 246, 247, 254;
+            --rgbprimary: 93, 84, 9;
+            --rgbsecondary: 227, 229, 252;
+            --rgbaccent: 234, 215, 42;
+        }
+        :root[data-theme="dark"] {
+            --text: rgba(246, 247, 254);
+            --background: rgba(1, 2, 9);
+            --primary: rgba(246, 237, 162);
+            --secondary: rgba(3, 5, 28);
+            --accent: rgba(213, 194, 21);
+            --rgbtext: 246, 247, 254;
+            --rgbbackground: 1, 2, 9;
+            --rgbprimary: 246, 237, 162;
+            --rgbsecondary: 3, 5, 28;
+            --rgbaccent: 213, 194, 21;
+        }
+        body {
+            background-color: var(--background);
+            color: var(--text);
+        }
+    </style>
+</body>
+
 </html>

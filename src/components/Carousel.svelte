@@ -125,7 +125,7 @@
   .main-show {
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 0.5rem;
     right: 0;
     margin: 0 auto;
   }
