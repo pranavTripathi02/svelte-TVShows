@@ -3,7 +3,7 @@
   import Tab from "../../components/Tab.svelte";
 
   export let categories;
-  console.log(categories);
+  // console.log(categories);
 </script>
 
 <h2 class="title">Shows by Categories</h2>

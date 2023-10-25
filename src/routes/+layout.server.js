@@ -17,9 +17,14 @@ export async function load() {
 
     data.shows = raw.sort((a, b) => b.weight - a.weight);
 
-    data.featuredShows = await data.shows?.slice(0, 10);
+    data.featuredShows = data.shows?.slice(0, 10);
 
-    data.topTen = data.shows.slice(0, 10);
+    data.popularTen = data.shows.slice(0, 10);
+
+    data.topTen = data.shows.sort(
+      (a, b) => b?.rating?.average - a?.rating?.average,
+    );
+
     for (let i = 0; i < data.shows.length; i++) {
       data.shows[i].genres?.filter((item) => {
         const j = data.categories.findIndex((x) => x == item);

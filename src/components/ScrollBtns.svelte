@@ -2,7 +2,7 @@
   import { afterUpdate, onMount } from "svelte";
 
   export let elId;
-  console.log(elId);
+  // console.log(elId);
 
   let leftStat = true;
   let rightStat = true;

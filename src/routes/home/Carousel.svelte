@@ -28,6 +28,7 @@
 <h1 class="title">Featured Shows</h1>
 <div class="grid-container">
   <main class="main-container">
+    <a href={featuredShows[itemIdx].url || "/"}><span class="link" /></a>
     <img
       class="main-image"
       src={featuredShows[itemIdx].image.original}
@@ -56,6 +57,9 @@
   </main>
   {#each [1, 2, 3] as showIdx}
     <div class="queued-container flex">
+      <a href={featuredShows[(showIdx + itemIdx) % 10].url || "/"}
+        ><span class="link" /></a
+      >
       <img
         class="queued-image"
         src={featuredShows[(showIdx + itemIdx) % 10].image.medium ||
@@ -91,7 +95,16 @@
     grid-template-rows: repeat(3, 10rem);
     gap: 2rem;
     margin: 0 2rem;
+    position: relative;
     /* border: 10px solid white; */
+  }
+  .link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
   .grid-container > * {
     max-height: 34rem;
