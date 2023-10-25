@@ -24,5 +24,6 @@
   .tab-container:hover {
     box-shadow: 0px 0px 100px rgba(var(--rgbaccent), 0.3);
     border: 1px solid rgba(var(--rgbprimary), 0.5);
+    color: var(--accent);
   }
 </style>

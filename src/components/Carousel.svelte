@@ -50,7 +50,7 @@
           >
         {/each}
       </p>
-      <!-- <progress value={$progress} /> -->
+      <progress value={$progress} />
     </div>
   </main>
   {#each [1, 2, 3] as showIdx}
