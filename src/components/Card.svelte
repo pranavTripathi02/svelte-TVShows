@@ -1,20 +1,17 @@
 <script>
   export let show;
+  // console.log(show);
 </script>
 
 <div class="card-container">
-  <a href={show.url}> <span class="link" /></a>
-  <img
-    class="card-image"
-    src={show.image.medium || show.image.original || ""}
-    alt="show poster"
-  />
+  <a href={show?.url}> <span class="link" /></a>
+  <img class="card-image" src={show?.image?.medium} alt="show-poster" />
   <div class="card-info">
-    <b class="card-info-title clamp-2">{show.name}</b>
-    <p class="clamp-2">
-      {#each show.genres as genre, idx}
+    <b class="card-info-title clamp-2">{show?.name}</b>
+    <p class="clamp-1">
+      {#each show?.genres as genre, idx}
         <span>
-          {genre}{idx !== show.genres.length - 1 ? ", " : ""}
+          {genre}{idx !== show?.genres.length - 1 ? ", " : ""}
         </span>
       {/each}
     </p>
@@ -54,10 +51,16 @@
     flex-direction: column;
     position: absolute;
     /* bottom: 0; */
-    top: 55%;
+    top: 70%;
     margin: 0 0.5rem;
   }
 
+  .clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
   .clamp-2 {
     overflow: hidden;
     display: -webkit-box;

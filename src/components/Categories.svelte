@@ -1,6 +1,6 @@
 <script>
-  import ScrollBtns from "../../components/ScrollBtns.svelte";
-  import Tab from "../../components/Tab.svelte";
+  import ScrollBtns from "./ScrollBtns.svelte";
+  import Tab from "./Tab.svelte";
 
   export let categories;
   // console.log(categories);

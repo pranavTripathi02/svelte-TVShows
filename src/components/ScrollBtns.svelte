@@ -1,5 +1,5 @@
 <script>
-  import { afterUpdate, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   export let elId;
   // console.log(elId);
@@ -9,7 +9,7 @@
   let el;
 
   const checkBtnStats = () => {
-    console.log(el);
+    // console.log(el);
     if (el) {
       if (el?.scrollLeft <= 0) leftStat = false;
       else if (el?.scrollLeft > 0) leftStat = true;

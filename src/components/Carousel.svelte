@@ -1,5 +1,4 @@
 <script>
-  // import { onMount } from "svelte";
   import { sineInOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
 
@@ -12,7 +11,6 @@
 
   export let featuredShows;
   // console.log(featuredShows);
-  // featuredShows.forEach((item) => console.log(item.image));
   let itemIdx = 0;
   // onMount(() => {
   setInterval(() => {
@@ -25,28 +23,28 @@
   // });
 </script>
 
-<h1 class="title">Featured Shows</h1>
+<h1 class="title">Featured</h1>
 <div class="grid-container">
   <main class="main-container">
-    <a href={featuredShows[itemIdx].url || "/"}><span class="link" /></a>
+    <!-- <a href={featuredShows[itemIdx]?.url}><span class="link" /></a> -->
     <img
       class="main-image"
-      src={featuredShows[itemIdx].image.original}
+      src={featuredShows[itemIdx]?.image?.original}
       alt="show-poster"
     />
     <div class="main-show">
       <h4>
-        {featuredShows[itemIdx].name}
+        {featuredShows[itemIdx]?.name}
         {`${
-          featuredShows[itemIdx].rating.average
-            ? "(" + featuredShows[itemIdx].rating.average + ")"
+          featuredShows[itemIdx]?.rating?.average > 0
+            ? "(" + featuredShows[itemIdx]?.rating?.average + ")"
             : ""
         }`}
       </h4>
       <p>
-        {#each featuredShows[itemIdx].genres as genre, idx}
+        {#each featuredShows[itemIdx]?.genres as genre, idx}
           <span
-            >{genre}{idx !== featuredShows[itemIdx].genres.length - 1
+            >{genre}{idx !== featuredShows[itemIdx]?.genres?.length - 1
               ? ", "
               : ""}</span
           >
@@ -57,20 +55,19 @@
   </main>
   {#each [1, 2, 3] as showIdx}
     <div class="queued-container flex">
-      <a href={featuredShows[(showIdx + itemIdx) % 10].url || "/"}
-        ><span class="link" /></a
-      >
+      <!-- <a href={featuredShows[(showIdx + itemIdx) % 10]?.url || "/"} -->
+      <!--   ><span class="link" /></a -->
+      <!-- > -->
       <img
         class="queued-image"
-        src={featuredShows[(showIdx + itemIdx) % 10].image.medium ||
-          featuredShows[(showIdx + itemIdx) % 10].image.original}
+        src={featuredShows[(showIdx + itemIdx) % 10]?.image.medium}
         alt="show-poster"
       />
       <div>
         <h5>
-          {featuredShows[(showIdx + itemIdx) % 10].name}
-          {featuredShows[(showIdx + itemIdx) % 10].rating.average
-            ? `(${featuredShows[(showIdx + itemIdx) % 10].rating.average})`
+          {featuredShows[(showIdx + itemIdx) % 10]?.name}
+          {featuredShows[(showIdx + itemIdx) % 10]?.rating?.average
+            ? `(${featuredShows[(showIdx + itemIdx) % 10]?.rating?.average})`
             : ""}
         </h5>
         <p>
