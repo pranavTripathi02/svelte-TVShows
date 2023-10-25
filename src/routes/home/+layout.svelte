@@ -1,5 +1,5 @@
 <script>
-console.log("in layout")
+  // console.log("in layout")
 </script>
 
-<slot/>
+<slot />

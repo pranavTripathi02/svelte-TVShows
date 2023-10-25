@@ -1,15 +1,27 @@
 <script>
-  // const timer = 0;
-  // console.log(timer);
+  // import data from "$lib/data";
+  import Carousel from "./home/Carousel.svelte";
+  import Categories from "./home/Categories.svelte";
+  import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
+  export let data;
+  // console.log(data);
+  const { featuredShows, topTen, popularTen, categories, shows } = data;
+  // console.log("wHATTT", featuredShows, topTen, popularTen, categories);
+  // console.log(data.data);
 </script>
 
 <div>
-  <h1>Home</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur neque dicta
-    possimus dolor id ab! Rerum excepturi asperiores voluptate recusandae.
-  </p>
+  <Carousel {featuredShows} />
+  <Categories {categories} />
+  <ShowsHorizontal title="Popular Shows" data={popularTen} />
+  <ShowsHorizontal title="Top Rated Shows" data={topTen} />
 </div>
 
 <style>
+  :global(.title:before) {
+    content: "";
+    background-color: var(--accent);
+    padding: 1px;
+    margin: 5px;
+  }
 </style>

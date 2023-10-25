@@ -3,14 +3,23 @@
 
 <header>
   <nav>
-    <a href="/">Home</a>
+    <div class="nav-item">
+      <a href="/">
+        <i class="fa-solid fa-film" />
+        Home
+      </a>
+    </div>
   </nav>
   <div class="search-bar">
     <input type="text" placeholder="Search for TV Shows" />
   </div>
   <nav>
-    <a href="/shows">Shows</a>
-    <a href="/watchlist">Watchlist</a>
+    <div class="nav-item">
+      <a href="/shows">Shows</a>
+    </div>
+    <div class="nav-item">
+      <a href="/watchlist">Watchlist</a>
+    </div>
   </nav>
 </header>
 
@@ -25,30 +34,18 @@
     /* border: 1px solid red; */
     box-sizing: border-box;
     height: 3rem;
-    border-bottom: 1px solid var(--secondary);
+    border-bottom: 1px solid rgba(var(--rgbprimary), 0.5);
   }
   header > * {
-    margin: 0 2rem;
+    margin: 0 0.5rem;
   }
   nav {
     display: flex;
     /* width: 75%; */
     justify-content: space-between;
   }
-  a {
-    padding: 5px;
-    color: var(--text);
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  a:hover {
-    border-radius: 5px;
-    background-color: var(--accent);
-    transition: ease-in-out;
-    transition-duration: 100ms;
-  }
   .search-bar {
-    width: 50%;
+    width: 30%;
   }
   input {
     width: 100%;
@@ -59,5 +56,29 @@
   }
   input:focus {
     outline: 1px solid var(--accent);
+  }
+  a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-item {
+    padding: 5px;
+    margin: 0 5px;
+  }
+  .nav-item:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(var(--rgbaccent), 0.2);
+    transition: ease-in-out;
+    transition-duration: 150ms;
+  }
+
+  @media screen and (min-width: 1024px) {
+    header > * {
+      margin: 0 2rem;
+    }
+    .search-bar {
+      width: 50%;
+    }
   }
 </style>

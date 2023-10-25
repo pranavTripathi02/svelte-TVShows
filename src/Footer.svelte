@@ -10,24 +10,27 @@
 <style>
   footer {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-b; */
     align-items: center;
-    position: fixed;
+    position: static;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3rem;
-    border-top: 1px solid var(--secondary);
+    /* height: 3rem; */
+    border-top: 1px solid rgba(var(--rgbprimary), 0.5);
   }
   nav {
     display: flex;
-    justify-content: space-between;
-    min-width: fit-content;
-    width: 30%;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* min-width: fit-content; */
+    /* border: 10px solid white; */
+    margin: 1rem;
   }
   a {
     text-decoration: none;
     color: var(--text);
+    padding: 0.5rem;
   }
   a:hover {
     text-decoration: underline;
