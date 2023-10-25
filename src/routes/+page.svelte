@@ -4,10 +4,10 @@
   import Categories from "../components/Categories.svelte";
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
   import { showStore } from "../stores/tvShows";
-  // import Loading from "../components/Loading.svelte";
+  import Loading from "../components/Loading.svelte";
   // export let data;
-  const { featuredShows, topTen, popularTen, categories, shows } = $showStore;
-  console.log("len", showStore.categories);
+  $: ({ featuredShows, topTen, popularTen, categories, shows } = $showStore);
+  // console.log("len", showStore.categories);
 </script>
 
 {#if $showStore?.shows.length > 0}

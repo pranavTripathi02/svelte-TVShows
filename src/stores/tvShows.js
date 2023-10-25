@@ -1,4 +1,3 @@
-import { onMount } from "svelte";
 import { writable } from "svelte/store";
 
 export const showStore = writable({});
@@ -40,4 +39,5 @@ const fetchShows = async () => {
     console.error("error loading data", err);
   }
 };
-onMount(async () => await fetchShows());
+fetchShows();
+// await fetchShows();
