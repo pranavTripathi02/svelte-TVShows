@@ -21,6 +21,7 @@
   };
 
   onMount(() => {
+    // console.log("hi");
     el = document.getElementById(elId);
     checkBtnStats();
   });

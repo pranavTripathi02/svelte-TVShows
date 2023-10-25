@@ -51,7 +51,7 @@
     flex-direction: column;
     position: absolute;
     /* bottom: 0; */
-    top: 70%;
+    top: 65%;
     margin: 0 0.5rem;
   }
 
@@ -59,7 +59,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
   }
   .clamp-2 {
     overflow: hidden;

@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const showStore = writable({});
+export const showStore = writable({ loading: true });
 
 const fetchShows = async () => {
   const pageNum = Math.ceil(Math.random() * 249);
@@ -34,7 +34,7 @@ const fetchShows = async () => {
         }
       })
       .catch((err) => console.error(err));
-    showStore.set(data);
+    showStore.set({ ...data, loading: false });
   } catch (err) {
     console.error("error loading data", err);
   }

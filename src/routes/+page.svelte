@@ -6,11 +6,12 @@
   import { showStore } from "../stores/tvShows";
   import Loading from "../components/Loading.svelte";
   // export let data;
-  $: ({ featuredShows, topTen, popularTen, categories, shows } = $showStore);
+  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
+    $showStore);
   // console.log("len", showStore.categories);
 </script>
 
-{#if $showStore?.shows.length > 0}
+{#if !loading}
   <div>
     <Carousel {featuredShows} />
     <ShowsHorizontal title="Featured Shows" data={featuredShows} />
