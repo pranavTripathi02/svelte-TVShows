@@ -9,7 +9,7 @@
 <section class:hidden={data.length < 1}>
   <h2 class="title">{title}</h2>
   <div class="shows-container">
-    <div id={`${title}-carousel`} class="shows-container">
+    <div id={`${title}-carousel`} class="shows-carousel">
       {#each data as show}
         <Card {show} />
       {/each}
@@ -26,8 +26,11 @@
     display: flex;
     position: relative;
     align-items: center;
-    overflow: hidden;
     margin: 0 2rem;
+  }
+  .shows-carousel {
+    overflow: hidden;
+    display: flex;
   }
   .title:before {
     content: "";

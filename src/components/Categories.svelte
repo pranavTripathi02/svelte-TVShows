@@ -20,30 +20,16 @@
   .categories-container {
     display: flex;
     position: relative;
-    /* overflow: visible; */
-    /* overflow-x: scroll; */
-    /* overflow-y: initial; */
     margin: 0 2rem;
-    /* justify-content: space-between; */
-    /* border: 1px solid red; */
     align-items: center;
-    /* align-content: center; */
   }
-  /* .categories-container:-webkit-scrollbar { */
-  /*   display: none; */
-  /* } */
   .categories-carousel {
     display: flex;
-    overflow: scroll;
+    overflow: hidden;
   }
   @media screen and (min-width: 1024px) {
     .categories-container {
       margin: 0 5rem;
     }
-    .categories-carousel {
-      display: flex;
-      overflow: hidden;
-    }
   }
-  /* -moz-scrollbars-none; */
 </style>

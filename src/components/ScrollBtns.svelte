@@ -63,30 +63,29 @@
 <style>
   .nav-btn {
     position: absolute;
-    background: none;
-    border-radius: 100%;
-    padding: 5px 7px;
-    /* top: 0; */
+    background: transparent;
+    /* border-radius: 100%; */
+    padding: 1rem;
     border: none;
     color: rgba(var(--rgbtext), 1);
     cursor: pointer;
-    /* bottom: 0; */
     /* margin: auto; */
-    /* border: 1px solid red; */
+    font-size: 1rem;
+    z-index: 1;
   }
   .nav-btn:hover {
     color: var(--accent);
   }
   .nav-btn-left {
-    left: 0;
+    left: -1.5rem;
   }
   .nav-btn-right {
-    right: 0;
+    right: -1.5rem;
   }
   @media screen and (min-width: 1024px) {
-    .nav-btn {
-      border: 1px solid rgba(var(--rgbtext), 0.8);
-    }
+    /* .nav-btn { */
+    /*   border: 1px solid rgba(var(--rgbtext), 0.8); */
+    /* } */
   }
   .disabled {
     display: none;

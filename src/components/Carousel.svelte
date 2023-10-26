@@ -1,4 +1,7 @@
 <script>
+  export let featuredShows;
+
+  import { onDestroy } from "svelte";
   import { sineInOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
 
@@ -9,18 +12,17 @@
     easing: sineInOut,
   });
 
-  export let featuredShows;
-  // console.log(featuredShows);
   let itemIdx = 0;
-  // onMount(() => {
-  setInterval(() => {
+  const intervalId = setInterval(() => {
     if (itemIdx === 9) itemIdx = 0;
     else itemIdx++;
     progress.set(0, { duration: 0 });
     progress.set(1, { duration: DURATION, easing: sineInOut });
   }, DURATION);
-  // return () => clearInterval(incItemIdx);
-  // });
+
+  onDestroy(() => {
+    clearInterval(intervalId);
+  });
 </script>
 
 <h1 class="title">Featured</h1>
@@ -50,8 +52,10 @@
           >
         {/each}
       </p>
-      <progress value={$progress} />
     </div>
+
+    <progress class="progress-bar" value={$progress} />
+    <!-- progress bar -->
   </main>
   {#each [1, 2, 3] as showIdx}
     <div class="queued-container flex">
@@ -60,7 +64,7 @@
       <!-- > -->
       <img
         class="queued-image"
-        src={featuredShows[(showIdx + itemIdx) % 10]?.image.medium}
+        src={featuredShows[(showIdx + itemIdx) % 10]?.image?.medium}
         alt="show-poster"
       />
       <div>
@@ -71,10 +75,10 @@
             : ""}
         </h5>
         <p>
-          {#each featuredShows[(showIdx + itemIdx) % 10].genres as genre, idx}
+          {#each featuredShows[(showIdx + itemIdx) % 10]?.genres as genre, idx}
             <span
               >{genre}{idx !==
-              featuredShows[(showIdx + itemIdx) % 10].genres.length - 1
+              featuredShows[(showIdx + itemIdx) % 10]?.genres?.length - 1
                 ? ", "
                 : ""}</span
             >
@@ -129,17 +133,25 @@
     right: 0;
     margin: 0 auto;
   }
-  progress {
+  .progress-bar {
     position: absolute;
     bottom: 0;
-    /* display: inline-block; */
-    width: 100%;
+    left: 0;
+    right: 0;
     height: 1px;
-    /* background: none; */
     background-color: transparent;
     border: none;
-    /* color: white; */
+    width: 100%;
   }
+  .progress-bar::-webkit-progress-value,
+  .progress-bar::-moz-progress-bar {
+    background-color: var(--accent);
+    border-radius: 7px;
+  }
+  /* .progress-bar::-moz-progress-bar { */
+  /*   background-color: var(--accent); */
+  /*   border-radius: 7px; */
+  /* } */
   img {
     height: 100%;
     margin: 0 0;
