@@ -1,37 +1,37 @@
-export async function load({ params }) {
-    const showId = params.show;
-    let data = { loading: true };
-    try {
-        const showInfo = await fetch(`https://api.tvmaze.com/shows/${showId}`).then(
-            (res) => res.json(),
-        );
-        data.showInfo = showInfo;
+export async function load({ fetch, params }) {
+  const showId = params.showId;
+  let data = { loading: true };
+  try {
+    const showInfo = await fetch(`https://api.tvmaze.com/shows/${showId}`).then(
+      (res) => res.json(),
+    );
+    data.showInfo = showInfo;
 
-        const showImages = await fetch(
-            `https://api.tvmaze.com/shows/${showId}/images`,
-        ).then((res) => res.json());
-        data.showInfo.showImages = showImages;
+    const showImages = await fetch(
+      `https://api.tvmaze.com/shows/${showId}/images`,
+    ).then((res) => res.json());
+    data.showInfo.showImages = showImages;
 
-        const showCast = await fetch(
-            `https://api.tvmaze.com/shows/${showId}/cast`,
-        ).then((res) => res.json());
-        data.showInfo.showCast = showCast;
+    const showCast = await fetch(
+      `https://api.tvmaze.com/shows/${showId}/cast`,
+    ).then((res) => res.json());
+    data.showInfo.showCast = showCast;
 
-        const showSeasons = await fetch(
-            `https://api.tvmaze.com/shows/${showId}/seasons`,
-        ).then((res) => res.json());
-        data.showInfo.showSeasons = showSeasons;
+    const showSeasons = await fetch(
+      `https://api.tvmaze.com/shows/${showId}/seasons`,
+    ).then((res) => res.json());
+    data.showInfo.showSeasons = showSeasons;
 
-        // const showCast = await fetch(
-        //     `https://api.tvmaze.com/shows/${showId}/images`,
-        // ).then((res) => res.json());
-        // data.showInfo.showCast = showCast;
-    } catch (err) {
-        console.error(err);
-    } finally {
-        data.loading = false;
-    }
-    return data;
+    // const showCast = await fetch(
+    //     `https://api.tvmaze.com/shows/${showId}/images`,
+    // ).then((res) => res.json());
+    // data.showInfo.showCast = showCast;
+  } catch (err) {
+    console.error(err);
+  } finally {
+    data.loading = false;
+  }
+  return data;
 }
 // export const fetchShow = async () => {
 //     const pageNum = Math.ceil(Math.random() * 249);

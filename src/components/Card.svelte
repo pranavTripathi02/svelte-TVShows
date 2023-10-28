@@ -2,7 +2,7 @@
   export let show;
 </script>
 
-<div class="card-container">
+<div class="card-container" data-sveltekit-preload-data>
   <a href="/shows/{show?.id}"> <span class="link" /></a>
   <img class="card-image" src={show?.image?.medium} alt="show-poster" />
   <div class="card-info">

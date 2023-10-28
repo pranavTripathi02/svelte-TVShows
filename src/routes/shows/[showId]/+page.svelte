@@ -2,7 +2,7 @@
   import Loading from "../../../components/Loading.svelte";
 
   export let data;
-  // $: console.log(data);
+  $: console.log(data);
   $: ({
     name,
     averageRuntime,
@@ -68,6 +68,9 @@
 {/if}
 
 <style>
+  * {
+    overflow: hidden;
+  }
   .main-images {
     display: flex;
   }

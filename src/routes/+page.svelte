@@ -7,13 +7,16 @@
   import Loading from "../components/Loading.svelte";
   export let data;
   // console.log("from /", data);
-  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } = data);
+  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
+    data.shows);
   // $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
   //   $showStore);
   // $: console.log($showStore);
 </script>
 
-{#if !loading}
+{#if loading}
+  <Loading />
+{:else}
   <div>
     <Carousel {featuredShows} />
     <ShowsHorizontal title="Featured Shows" data={featuredShows} />
@@ -21,8 +24,6 @@
     <ShowsHorizontal title="Popular Shows" data={popularTen} />
     <ShowsHorizontal title="Top Rated Shows" data={topTen} />
   </div>
-{:else}
-  <Loading />
 {/if}
 
 <style>
