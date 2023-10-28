@@ -206,8 +206,14 @@
   }
 
   @media screen and (max-width: 1024px) {
+    .grid-container {
+      margin: 0 0;
+    }
     .queued-container {
       display: none;
+    }
+    .main-container {
+      min-width: 15rem;
     }
     * {
       width: 100%;

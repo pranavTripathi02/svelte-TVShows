@@ -1,17 +1,10 @@
 <script>
-  // import data from "$lib/data";
   import Carousel from "../components/Carousel.svelte";
   import Categories from "../components/Categories.svelte";
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
-  // import { showStore } from "../stores/tvShows";
   import Loading from "../components/Loading.svelte";
   export let data;
-  // console.log("from /", data);
-  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
-    data.shows);
-  // $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
-  //   $showStore);
-  // $: console.log($showStore);
+  $: ({ loading, featuredShows, topTen, popularTen, categories } = data.shows);
 </script>
 
 {#if loading}

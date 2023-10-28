@@ -111,4 +111,11 @@
     color: var(--accent);
     text-decoration: underline;
   }
+  @media screen and (max-width: 1024px) {
+    .card-container {
+      min-width: 6rem;
+      max-width: 6rem;
+      margin: 0.2rem;
+    }
+  }
 </style>

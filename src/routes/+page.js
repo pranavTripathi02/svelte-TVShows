@@ -15,7 +15,7 @@ export async function load({ fetch }) {
   });
   // $: pageNum = $pageStore;
   const fetchShows = async () => {
-    console.log("loading", pageNum);
+    // console.log("loading", pageNum);
     try {
       const res = await fetch(`https://api.tvmaze.com/shows?page=${pageNum}`);
       await res

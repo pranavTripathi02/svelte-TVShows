@@ -17,13 +17,13 @@
     /* min-width: fit-content; */
     /* max-width: 100px; */
     max-width: 100%;
+    margin: 2rem auto;
   }
   @media screen and (min-width: 1024px) {
     main {
-      width: 66%;
+      width: 60%;
       min-width: 1024px;
       max-width: 1280px;
-      margin: 2rem auto;
       /* border: 1px solid red; */
     }
   }
