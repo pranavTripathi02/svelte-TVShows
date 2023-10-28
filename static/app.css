@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:700|Inter:400");
+body {
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Inter";
+  font-weight: 700;
+}
+
+:root[data-theme="light"] {
+  --text: rgba(1, 2, 9);
+  --background: rgba(246, 247, 254);
+  --primary: rgba(93, 84, 9);
+  --secondary: rgba(227, 229, 252);
+  --accent: rgba(234, 215, 42);
+  --rgbtext: 1, 2, 9;
+  --rgbbackground: 246, 247, 254;
+  --rgbprimary: 93, 84, 9;
+  --rgbsecondary: 227, 229, 252;
+  --rgbaccent: 234, 215, 42;
+}
+
+:root[data-theme="dark"] {
+  --text: rgba(246, 247, 254);
+  --background: rgba(1, 2, 9);
+  --primary: rgba(87, 153, 239);
+  --secondary: rgba(26, 26, 26);
+  --accent: rgba(213, 194, 21);
+  --rgbtext: 246, 247, 254;
+  --rgbbackground: 1, 2, 9;
+  --rgbprimary: 87, 153, 239;
+  --rgbsecondary: 26, 26, 26;
+  --rgbaccent: 213, 194, 21;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+
+h1 {
+  font-size: 1.802rem; /* 28.8px */
+}
+
+h2 {
+  font-size: 1.602rem; /* 25.6px */
+}
+
+h3 {
+  font-size: 1.424rem; /* 22.72px */
+}
+
+h4 {
+  font-size: 1.266rem; /* 20.32px */
+}
+
+h5 {
+  font-size: 1.125rem; /* 18.08px */
+}
+
+small {
+  font-size: 0.889rem; /* 14.24px */
+}

@@ -1,14 +1,15 @@
 <script>
-  // const timer = 0;
-  // console.log(timer);
+  import { showStore } from "../../stores/tvShows";
+
+  // export let shows;
+  $: ({ shows } = $showStore);
+  // $: console.log(shows);
+  const filters = {};
 </script>
 
 <div>
-  <h1>Shows</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur neque dicta
-    possimus dolor id ab! Rerum excepturi asperiores voluptate recusandae.
-  </p>
+  <h1 class="title">Show Charts</h1>
+  <h3>Explore over 200 TV Shows</h3>
 </div>
 
 <style>

@@ -75,6 +75,8 @@
   }
   .nav-btn:hover {
     color: var(--accent);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
   }
   .nav-btn-left {
     left: -1.5rem;

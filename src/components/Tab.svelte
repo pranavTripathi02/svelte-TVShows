@@ -1,29 +1,38 @@
 <script>
   // console.log("tab");
   export let title;
+  title = title.toLowerCase();
 </script>
 
-<div class="tab-container">{title}</div>
+<div class="tab-container">
+  {title}
+  <!-- <a href="" /> -->
+  <a href="/categories/{title}"><span class="link" /></a>
+</div>
 
 <style>
   .tab-container {
-    /* background: linear-gradient( */
-    /*   to right, */
-    /*   rgba(var(--rgbsecondary), 1) 5%, */
-    /*   rgba(var(--rgbprimary), 0.2) */
-    /* ); */
-    /* background: var(--secondary); */
-    border: 1px solid rgba(var(--rgbprimary), 0.2);
+    border: 1px solid rgba(var(--rgbtext), 0.1);
     min-width: fit-content;
     border-radius: 0.5rem;
     height: 1rem;
     padding: 1rem 1.5rem;
     margin: 1rem;
     cursor: pointer;
+    position: relative;
+    text-transform: capitalize;
+  }
+  .link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
   .tab-container:hover {
-    box-shadow: 0px 0px 100px rgba(var(--rgbaccent), 0.3);
-    border: 1px solid rgba(var(--rgbprimary), 0.5);
+    text-decoration: underline;
+    border: 1px solid rgba(var(--rgbaccent), 0.2);
     color: var(--accent);
   }
 </style>

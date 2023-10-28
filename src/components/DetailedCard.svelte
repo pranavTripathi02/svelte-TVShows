@@ -1,19 +1,14 @@
 <script>
   export let show;
+  // console.log(show);
 </script>
 
 <div class="card-container">
-  <a href="/shows/{show?.id}"> <span class="link" /></a>
+  <a href={show?.url}> <span class="link" /></a>
   <img class="card-image" src={show?.image?.medium} alt="show-poster" />
   <div class="card-info">
-    <p class="card-info-title clamp-2">{show?.name}</p>
-    {#if show?.rating?.average > 0}
-      <div class="card-info-rating">
-        <i class="card-info-rating-stars fa-solid fa-star" />
-        <p>{show?.rating?.average}</p>
-      </div>
-    {/if}
-    <p class="card-info-genres clamp-1">
+    <b class="card-info-title clamp-2">{show?.name}</b>
+    <p class="clamp-1">
       {#each show?.genres as genre, idx}
         <span>
           {genre}{idx !== show?.genres.length - 1 ? ", " : ""}
@@ -27,17 +22,14 @@
   .card-container {
     display: flex;
     flex-direction: column;
-    background: var(--secondary);
     position: relative;
-    margin: 0.5rem;
+    /* border: 1px solid white; */
+    margin: 1rem;
     /* min-height: 12rem; */
-    /* height: 100%; */
-    min-width: 12rem;
-    max-width: 12rem;
+    height: 100%;
+    min-width: 10rem;
+    max-width: 10rem;
     overflow: hidden;
-    cursor: pointer;
-    border: 1px solid rgba(var(--rgbtext), 0.1);
-    box-sizing: border-box;
   }
   .link {
     position: absolute;
@@ -48,41 +40,19 @@
     z-index: 1;
   }
   .card-image {
-    object-position: center;
-    object-fit: cover;
     mask-image: linear-gradient(
       to top,
-      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.15) 35%,
       rgba(0, 0, 0, 1)
     );
   }
   .card-info {
     display: flex;
     flex-direction: column;
-    /* position: absolute; */
-    bottom: 0;
-    /* top: 55%; */
-    margin: 0 0.5rem 0 0.5rem;
-  }
-  .card-info > * {
-    opacity: 0.7;
-  }
-  .card-info-title {
-    font-weight: 500;
-    opacity: 1;
-  }
-  .card-info-rating {
-    display: flex;
-    font-size: 0.8rem;
-  }
-  .card-info-rating > * {
-    margin: 0.5rem 0.5rem 0 0;
-  }
-  .card-info-rating-stars {
-    color: yellow;
-  }
-  .card-info-genres {
-    color: var(--primary);
+    position: absolute;
+    /* bottom: 0; */
+    top: 65%;
+    margin: 0 0.5rem;
   }
 
   .clamp-1 {
@@ -105,10 +75,5 @@
   }
   .card-container:hover > .card-info > .card-info-title {
     color: var(--accent);
-    text-decoration: underline;
-  }
-  .link:hover {
-    color: var(--accent);
-    text-decoration: underline;
   }
 </style>

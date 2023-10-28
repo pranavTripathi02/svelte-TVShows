@@ -3,12 +3,14 @@
   import Carousel from "../components/Carousel.svelte";
   import Categories from "../components/Categories.svelte";
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
-  import { showStore } from "../stores/tvShows";
+  // import { showStore } from "../stores/tvShows";
   import Loading from "../components/Loading.svelte";
-  // export let data;
-  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
-    $showStore);
-  // console.log("len", showStore.categories);
+  export let data;
+  // console.log("from /", data);
+  $: ({ loading, featuredShows, topTen, popularTen, categories, shows } = data);
+  // $: ({ loading, featuredShows, topTen, popularTen, categories, shows } =
+  //   $showStore);
+  // $: console.log($showStore);
 </script>
 
 {#if !loading}
