@@ -1,13 +1,12 @@
 <script>
   // console.log("tab");
   export let title;
-  title = title.toLowerCase();
 </script>
 
 <div class="tab-container">
   {title}
   <!-- <a href="" /> -->
-  <a href="/categories/{title}"><span class="link" /></a>
+  <a href="/shows/categories/{title}"><span class="link" /></a>
 </div>
 
 <style>
