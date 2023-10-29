@@ -5,7 +5,7 @@
   <nav>
     <div class="nav-item">
       <a href="/">
-        <i class="fa-solid fa-film" />
+        <i class="show-logo fa-solid fa-film" />
         Home
       </a>
     </div>
@@ -72,6 +72,9 @@
     transition: ease-in-out;
     transition-duration: 150ms;
   }
+  .show-logo {
+    display: none;
+  }
 
   @media screen and (min-width: 1024px) {
     header > * {
@@ -79,6 +82,9 @@
     }
     .search-bar {
       width: 50%;
+    }
+    .show-logo {
+      display: inline-block;
     }
   }
 </style>

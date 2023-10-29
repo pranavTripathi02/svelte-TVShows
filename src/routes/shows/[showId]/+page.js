@@ -1,37 +1,40 @@
 export async function load({ fetch, params }) {
   const showId = params.showId;
   let data = { loading: true };
-  try {
+  const fetchShowInfo = async () => {
     const showInfo = await fetch(`https://api.tvmaze.com/shows/${showId}`).then(
       (res) => res.json(),
     );
-    data.showInfo = showInfo;
-
+    data.loading = false;
+    return showInfo;
+  };
+  const fetchShowImages = async () => {
     const showImages = await fetch(
       `https://api.tvmaze.com/shows/${showId}/images`,
     ).then((res) => res.json());
-    data.showInfo.showImages = showImages;
-
+    data.loading = false;
+    return showImages;
+  };
+  const fetchShowCast = async () => {
     const showCast = await fetch(
       `https://api.tvmaze.com/shows/${showId}/cast`,
     ).then((res) => res.json());
-    data.showInfo.showCast = showCast;
-
+    data.loading = false;
+    return showCast;
+  };
+  const fetchShowSeasons = async () => {
     const showSeasons = await fetch(
       `https://api.tvmaze.com/shows/${showId}/seasons`,
     ).then((res) => res.json());
-    data.showInfo.showSeasons = showSeasons;
-
-    // const showCast = await fetch(
-    //     `https://api.tvmaze.com/shows/${showId}/images`,
-    // ).then((res) => res.json());
-    // data.showInfo.showCast = showCast;
-  } catch (err) {
-    console.error(err);
-  } finally {
     data.loading = false;
-  }
-  return data;
+    return showSeasons;
+  };
+  return {
+    showInfo: fetchShowInfo(),
+    showImages: fetchShowImages(),
+    showCast: fetchShowCast(),
+    showSeasons: fetchShowSeasons(),
+  };
 }
 // export const fetchShow = async () => {
 //     const pageNum = Math.ceil(Math.random() * 249);

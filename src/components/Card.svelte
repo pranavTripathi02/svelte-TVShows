@@ -1,5 +1,7 @@
 <script>
   export let show;
+  // let fallback = "http://placekitten.com/800/600";
+  // console.log(show);
 </script>
 
 <div class="card-container" data-sveltekit-preload-data>
@@ -48,6 +50,7 @@
     z-index: 1;
   }
   .card-image {
+    height: 16rem;
     object-position: center;
     object-fit: cover;
     mask-image: linear-gradient(
@@ -111,11 +114,14 @@
     color: var(--accent);
     text-decoration: underline;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 724px) {
     .card-container {
       min-width: 6rem;
       max-width: 6rem;
-      margin: 0.2rem;
+      margin: 0.4rem;
+    }
+    .card-image {
+      height: 10rem;
     }
   }
 </style>

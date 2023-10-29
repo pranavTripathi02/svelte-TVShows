@@ -1,8 +1,11 @@
 <script>
   import Loading from "../../../components/Loading.svelte";
+  import CastSlot from "./castSlot.svelte";
+  import EpisodesSlot from "./episodesSlot.svelte";
+  import ImageSlot from "./imageSlot.svelte";
+  import RelatedSlot from "./relatedSlot.svelte";
 
   export let data;
-  $: console.log(data);
   $: ({
     name,
     averageRuntime,
@@ -13,58 +16,36 @@
     status,
     summary,
     rating,
-    showImages,
-    showCast,
-    showSeasons,
   } = data?.showInfo);
+  $: ({ showImages, showCast, showSeasons } = data);
+  $: backImages = showImages.filter((item) => item.type === "background");
 </script>
 
 {#if data.loading}
   <Loading />
 {:else}
-  <h1>{name}</h1>
-  <p>{status}{premiered}-{status}</p>
+  <h1 class="title">{name}</h1>
+  <!-- <p>{status}{premiered}-{status}</p> -->
   <div class="main-images">
-    <img src={image?.medium} alt="main-image1" />
-    <img src={showImages[0]?.resolutions?.medium?.url} alt="main-image3" />
-    <div class="main-images-next">
-      trail
-      <img src={showImages[0]?.resolutions?.medium?.url} alt="main-image3" />
-      <!-- <img src={showImages[0]?.resolutions?.medium?.url} alt="main-image3" /> -->
-      <!-- <img src={showImages[0]?.resolutions?.medium?.url} alt="main-image3" /> -->
-    </div>
+    <img src={image?.medium} alt="main-image-poster" />
+    <img src={backImages[0]?.resolutions?.original?.url} alt="" />
+    <!-- <img src={backImages[0]} alt="" /> -->
   </div>
   <div class="genre-tabs">
     {#each genres as genre}
-      <span>{genre}, </span>
+      <span>{genre}</span>
     {/each}
   </div>
   <div class="show-description">
     <p>{@html summary}</p>
-    <button>{network?.name}</button>
   </div>
-  <div class="episodes-list">
-    <div class="episode-info">
-      <img class="episode-info-photo" src="" alt="" />
-      <div class="episode-info-desc"></div>
-    </div>
-    <p>see more</p>
-  </div>
-  <div class="show-photo-gallery">
-    {#each showImages as image}
-      <div class="show-gallery-photo">
-        <img src={image?.resolutions?.medium?.url} alt="" />
-      </div>
-    {/each}
-  </div>
-  <div class="cast-list">
-    {#each showCast as cast}
-      <div class="cast-info">
-        <img src={cast.person?.image?.medium} alt="" class="cast-info-photo" />
-        <div class="cast-info-name">{cast.person.name}</div>
-      </div>
-    {/each}
-  </div>
+  {#if network?.name}
+    <span class="available">Available on: {network?.name}</span>
+  {/if}
+  <EpisodesSlot seasonList={showSeasons} />
+  <ImageSlot imageList={showImages} />
+  <CastSlot castList={showCast} />
+  <!-- <RelatedSlot related={shows}/> -->
 {/if}
 
 <style>
@@ -73,48 +54,37 @@
   }
   .main-images {
     display: flex;
+    justify-content: start;
   }
-  .main-images-next {
-    display: flex;
-    flex-direction: column;
+  .main-images > * {
+    margin: 0 0.5rem;
+    max-width: 25rem;
+    object-fit: cover;
   }
 
   .genre-tabs {
     display: flex;
+    margin-left: 2rem;
+  }
+  .genre-tabs > * {
+    font-size: 0.9rem;
+    margin: 1rem 0.5rem;
+    background-color: var(--secondary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
   }
 
   .show-description {
-    display: flex;
+    padding: 0 0 0 0.5rem;
+    text-align: justify;
+    background-color: rgba(var(--secondary), 0.5);
   }
-
-  .episodes-list {
-    display: flex;
-    flex-direction: column;
-  }
-  .episode-info {
-    display: flex;
-  }
-
-  .show-photo-gallery {
-    display: flex;
-  }
-
-  .cast-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .cast-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1rem;
-  }
-  .cast-info-photo {
-    margin: 1rem;
-    border-radius: 50%;
-    height: 8rem;
-    width: 8rem;
-    object-fit: cover;
-    object-position: top;
+  .available {
+    padding: 1rem;
+    overflow: hidden;
+    background-color: rgba(var(--rgbaccent), 0.8);
+    border-radius: 0.5rem;
+    color: var(--background);
+    /* margin: 0 0 0 auto; */
   }
 </style>

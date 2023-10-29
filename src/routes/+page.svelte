@@ -4,20 +4,16 @@
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
   import Loading from "../components/Loading.svelte";
   export let data;
-  $: ({ loading, featuredShows, topTen, popularTen, categories } = data.shows);
+  $: ({ featuredShows, topTen, popularTen, categories } = data.shows);
 </script>
 
-{#if loading}
-  <Loading />
-{:else}
-  <div>
-    <Carousel {featuredShows} />
-    <ShowsHorizontal title="Featured Shows" data={featuredShows} />
-    <Categories {categories} />
-    <ShowsHorizontal title="Popular Shows" data={popularTen} />
-    <ShowsHorizontal title="Top Rated Shows" data={topTen} />
-  </div>
-{/if}
+<div>
+  <Carousel {featuredShows} />
+  <ShowsHorizontal title="Featured Shows" data={featuredShows} />
+  <Categories {categories} />
+  <ShowsHorizontal title="Popular Shows" data={popularTen} />
+  <ShowsHorizontal title="Top Rated Shows" data={topTen} />
+</div>
 
 <style>
   :global(.title:before) {

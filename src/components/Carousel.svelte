@@ -63,54 +63,60 @@
     <progress class="progress-bar" value={$progress} />
     <!-- progress bar -->
   </main>
-  {#each queuedItemNum as showIdx}
-    <div class="queued-container flex">
-      <a href={featuredShows[(showIdx + itemIdx) % 10]?.url}>
-        <span class="link" />
-      </a>
-      <img
-        class="queued-image"
-        src={featuredShows[(showIdx + itemIdx) % 10]?.image?.medium}
-        alt="show-poster"
-      />
-      <div>
-        <div class="show-info">
-          <h5 class="show-title">
-            {featuredShows[(showIdx + itemIdx) % 10]?.name}
-          </h5>
-          {#if featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}
-            <div class="rating">
-              <i class="rating-stars fa-solid fa-star" />
-              <p>{featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}</p>
-            </div>
-          {/if}
+  <div class="queued-container flex">
+    {#each queuedItemNum as showIdx}
+      <div class="queued-show flex">
+        <a href={featuredShows[(showIdx + itemIdx) % 10]?.url}>
+          <span class="link" />
+        </a>
+        <img
+          class="queued-image"
+          src={featuredShows[(showIdx + itemIdx) % 10]?.image?.medium}
+          alt="show-poster"
+        />
+        <div>
+          <div class="show-info">
+            <h5 class="show-title">
+              {featuredShows[(showIdx + itemIdx) % 10]?.name}
+            </h5>
+            {#if featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}
+              <div class="rating">
+                <i class="rating-stars fa-solid fa-star" />
+                <p>
+                  {featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}
+                </p>
+              </div>
+            {/if}
+          </div>
+          <p>
+            {#each featuredShows[(showIdx + itemIdx) % 10]?.genres as genre, idx}
+              <span
+                >{genre}{idx !==
+                featuredShows[(showIdx + itemIdx) % 10]?.genres?.length - 1
+                  ? ", "
+                  : ""}</span
+              >
+            {/each}
+          </p>
         </div>
-        <p>
-          {#each featuredShows[(showIdx + itemIdx) % 10]?.genres as genre, idx}
-            <span
-              >{genre}{idx !==
-              featuredShows[(showIdx + itemIdx) % 10]?.genres?.length - 1
-                ? ", "
-                : ""}</span
-            >
-          {/each}
-        </p>
       </div>
-    </div>
-  {/each}
+    {/each}
+  </div>
 </div>
 
 <style>
-  .title {
-    color: var(--accent);
-  }
   .grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 10rem);
     gap: 2rem;
     margin: 0 2rem;
     position: relative;
+    grid-template-areas:
+      "main-container queued-container"
+      "main-container queued-container"
+      "main-container queued-container";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 10rem 10rem 10rem;
+    overflow: hidden;
   }
   .link {
     position: absolute;
@@ -120,19 +126,15 @@
     left: 0;
     z-index: 1;
   }
-  .grid-container > * {
-    max-height: 34rem;
-  }
   .main-container {
     position: relative;
-    grid-column: 1 / 3;
-    grid-row: 1 / 4;
+    grid-area: main-container;
     justify-self: center;
     max-width: 25rem;
     min-width: 20rem;
   }
   .main-image {
-    width: 100%;
+    height: 34rem;
     mask-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.2) 5%,
@@ -164,7 +166,6 @@
   .rating {
     display: flex;
     font-size: 0.8rem;
-    margin: 0;
   }
   .rating > * {
     margin: 0;
@@ -182,23 +183,25 @@
     margin: 0.5rem 0;
     opacity: 1;
   }
-  /* .progress-bar::-moz-progress-bar { */
-  /*   background-color: var(--accent); */
-  /*   border-radius: 7px; */
-  /* } */
   img {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    background-size: 100%;
+    background-color: black;
   }
   .queued-container {
-    grid-column: 3 / 4;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    grid-area: queued-container;
+  }
+  .queued-show {
     display: flex;
     position: relative;
-    /* justify-content: space-between; */
   }
   .queued-image {
-    height: 100%;
+    min-height: 11rem;
     max-width: 8rem;
     min-width: 8rem;
     margin: 0 1.5rem;
@@ -208,6 +211,11 @@
   @media screen and (max-width: 1024px) {
     .grid-container {
       margin: 0 0;
+      grid-template-areas:
+        "main-container"
+        "main-container"
+        "main-container";
+      grid-template-columns: 1fr;
     }
     .queued-container {
       display: none;

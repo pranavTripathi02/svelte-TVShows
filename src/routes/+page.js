@@ -9,11 +9,11 @@ export async function load({ fetch }) {
     popularTen: [],
     loading: true,
   };
-  let pageNum = 50;
+  let pageNum = 199;
+  // console.log("hi");
   pageStore.subscribe((num) => {
     pageNum = num;
   });
-  // $: pageNum = $pageStore;
   const fetchShows = async () => {
     // console.log("loading", pageNum);
     try {
@@ -38,7 +38,7 @@ export async function load({ fetch }) {
             });
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.log("eror in page.js"));
       // showStore.set({ ...data, loading: false });
     } catch (err) {
       console.error("error loading data", err);

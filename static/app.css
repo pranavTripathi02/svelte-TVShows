@@ -26,7 +26,7 @@ h5 {
   --rgbaccent: 234, 215, 42;
 }
 
-:root[data-theme="dark"] {
+:root {
   --text: rgba(246, 247, 254);
   --background: rgba(1, 2, 9);
   --primary: rgba(87, 153, 239);

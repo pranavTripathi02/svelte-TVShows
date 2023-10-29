@@ -1,8 +1,8 @@
 <script>
-  import { showStore } from "../../stores/tvShows";
+  // import { showStore } from "../../stores/tvShows";
 
   // export let shows;
-  $: ({ shows } = $showStore);
+  // $: ({ shows } = $showStore);
   // $: console.log(shows);
   const filters = {};
 </script>

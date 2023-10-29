@@ -35,4 +35,11 @@
     border: 1px solid rgba(var(--rgbaccent), 0.2);
     color: var(--accent);
   }
+  @media screen and (max-width: 724px) {
+    .tab-container {
+      height: 1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+    }
+  }
 </style>
