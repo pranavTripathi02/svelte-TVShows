@@ -4,7 +4,7 @@
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
   import Loading from "../components/Loading.svelte";
   export let data;
-  $: ({ featuredShows, topTen, popularTen, categories } = data.shows);
+  $: ({ featuredShows, topTen, popularTen, categories } = data);
 </script>
 
 <div>

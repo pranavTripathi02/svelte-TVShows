@@ -48,7 +48,5 @@ export async function load({ fetch }) {
     return data;
   };
 
-  return {
-    shows: fetchShows(),
-  };
+  return fetchShows();
 }

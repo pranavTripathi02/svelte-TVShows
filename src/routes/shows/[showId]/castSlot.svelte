@@ -20,8 +20,8 @@
 <style>
   .cast-list {
     display: grid;
-    grid-template-columns: repeat(4, minMax(10rem, 12rem));
-    justify-content: center;
+    grid-template-columns: repeat(3, minMax(10rem, 12rem));
+    /* justify-content: center; */
     align-items: center;
   }
   .cast-info {

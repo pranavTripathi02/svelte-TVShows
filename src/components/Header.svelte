@@ -3,23 +3,17 @@
 
 <header>
   <nav>
-    <div class="nav-item">
-      <a href="/">
-        <i class="show-logo fa-solid fa-film" />
-        Home
-      </a>
-    </div>
+    <a class="nav-item" href="/">
+      <i class="show-logo fa-solid fa-film" />
+      Home
+    </a>
   </nav>
   <div class="search-bar">
     <input type="text" placeholder="Search for TV Shows" />
   </div>
   <nav>
-    <div class="nav-item">
-      <a href="/shows">Shows</a>
-    </div>
-    <div class="nav-item">
-      <a href="/watchlist">Watchlist</a>
-    </div>
+    <a class="nav-item" href="/shows">Shows</a>
+    <a class="nav-item" href="/watchlist">Watchlist</a>
   </nav>
 </header>
 
@@ -61,14 +55,18 @@
     color: var(--text);
     text-decoration: none;
   }
+  a:hover {
+    color: var(--accent);
+  }
   .nav-item {
-    padding: 5px;
+    padding: 0.8rem;
     margin: 0 5px;
+    position: relative;
   }
   .nav-item:hover {
     cursor: pointer;
     border-radius: 5px;
-    background-color: rgba(var(--rgbaccent), 0.2);
+    background-color: rgba(var(--rgbsecondary), 0.8);
     transition: ease-in-out;
     transition-duration: 150ms;
   }
