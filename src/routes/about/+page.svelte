@@ -4,6 +4,9 @@
 
 <div>
   <h1>About Us</h1>
+  <a href="https://github.com/pranavTripathi02/svelte-TVShows"
+    ><h3>Source Code for this site</h3></a
+  >
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium,
     similique. Laboriosam incidunt aspernatur libero adipisci minima dolores

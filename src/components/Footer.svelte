@@ -2,7 +2,7 @@
   <nav>
     <a href="/about">About us</a>
     <a href="/help">Help</a>
-    <a href="/contact">Contact us</a>
+    <a href="https://github.com/pranavTripathi02/svelte-TVShows">Source</a>
   </nav>
   <!-- <div>copyright</div> -->
 </footer>
