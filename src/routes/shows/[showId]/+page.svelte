@@ -45,7 +45,6 @@
       "col1 col2";
     grid-template-columns: 1.5fr 1fr;
     grid-gap: 1rem;
-    border: 1px solid red;
   }
   .grid-container > * {
     overflow: hidden;
