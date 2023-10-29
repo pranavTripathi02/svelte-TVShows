@@ -1,6 +1,6 @@
 <script>
   export let seasonList;
-  console.log(seasonList);
+  // console.log(seasonList);
 </script>
 
 <div class="episodes-list">

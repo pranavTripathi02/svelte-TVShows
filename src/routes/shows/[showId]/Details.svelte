@@ -6,7 +6,7 @@
   export let data;
   // $: ({ summary, network, showSeasons, showImages, showCast } = data);
   const { summary, network, showSeasons, showImages, showCast } = data;
-  console.log(data);
+  // console.log(data);
 </script>
 
 <div class="flex-container">

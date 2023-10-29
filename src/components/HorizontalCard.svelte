@@ -1,7 +1,7 @@
 <script>
   export let show;
   export let details;
-  console.log(show, details);
+  // console.log(show, details);
 </script>
 
 <div class="card-container" data-sveltekit-preload-data>

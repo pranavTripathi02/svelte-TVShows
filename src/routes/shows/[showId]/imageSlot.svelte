@@ -2,7 +2,7 @@
   export let imageList;
   const bannerImage = imageList.find((img) => img.type === "banner");
   const imageGallery = imageList.filter((img) => img.type !== "banner");
-  $: console.log(imageList);
+  // $: console.log(imageList);
 </script>
 
 {#if bannerImage}

@@ -7,8 +7,8 @@
 
   export let data;
   $: ({ shows, loading } = data);
-  $: console.log(shows, loading);
-  $: console.log(data);
+  // $: console.log(shows, loading);
+  // $: console.log(data);
   let details = false;
   // const filters = {};
 </script>
