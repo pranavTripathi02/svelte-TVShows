@@ -5,7 +5,6 @@
 
 <div class="tab-container">
   {title}
-  <!-- <a href="" /> -->
   <a href="/shows/categories/{title}"><span class="link" /></a>
 </div>
 

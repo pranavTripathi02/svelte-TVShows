@@ -2,7 +2,7 @@
   export let castList;
 </script>
 
-<h2 class="title">Top Cast</h2>
+<h2 class="title"><a class="title-link" href="/">Top Cast</a></h2>
 <div class="cast-list">
   {#each castList as cast}
     <div class="cast-info">
@@ -18,11 +18,20 @@
 </div>
 
 <style>
+  .title-link {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .title-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
   .cast-list {
     display: grid;
-    grid-template-columns: repeat(3, minMax(10rem, 12rem));
-    /* justify-content: center; */
+    grid-template-columns: repeat(4, minMax(10rem, 12rem));
+    /* grid-gap: auto; */
     align-items: center;
+    overflow: hidden;
   }
   .cast-info {
     display: flex;
@@ -54,5 +63,14 @@
     top: 0;
     left: 0;
     z-index: 1;
+  }
+  @media screen and (max-width: 1024px) {
+    .cast-list {
+      display: flex;
+      margin: 0 5rem 0 0;
+      width: 100%;
+      /* overflow: hidden; */
+      /* border: 1px solid red; */
+    }
   }
 </style>

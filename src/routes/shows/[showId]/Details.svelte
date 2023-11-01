@@ -15,11 +15,11 @@
   </div>
   <div class="show-actions">
     {#if network?.name}
-      <span class="show-actions-action available"
-        >Available on: {network?.name}</span
+      <a class="show-actions-action available" href="/"
+        >Available on: {network?.name}</a
       >
     {/if}
-    <span class="show-actions-action watchlist">Add to watchlist</span>
+    <a class="show-actions-action watchlist" href="/">Add to watchlist</a>
   </div>
   <EpisodesSlot seasonList={showSeasons} />
   <ImageSlot imageList={showImages} />
@@ -31,6 +31,8 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    width: 100%;
+    /* border: 10px solid white; */
   }
   .show-description {
     padding: 0 0 0 0.5rem;
@@ -53,10 +55,17 @@
   }
   .watchlist {
     background-color: rgba(var(--rgbaccent), 0.8);
+    text-decoration: none;
     color: var(--background);
+  }
+  .available:hover,
+  .watchlist:hover {
+    text-decoration: underline;
   }
   .available {
     background-color: rgba(var(--rgbsecondary), 0.8);
+    text-decoration: none;
+    color: var(--primary);
     /* margin: 0 0 0 auto; */
   }
 </style>
