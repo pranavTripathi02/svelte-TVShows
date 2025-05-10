@@ -1,11 +1,16 @@
-<script>
-  // console.log("tab");
-  export let title;
+<script lang="ts">
+  
+  interface Props {
+    // console.log("tab");
+    title: any;
+  }
+
+  let { title }: Props = $props();
 </script>
 
 <div class="tab-container">
   {title}
-  <a href="/shows/categories/{title}"><span class="link" /></a>
+  <a href="/shows/categories/{title}"><span class="link"></span></a>
 </div>
 
 <style>

@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex-container">
-  <i class="loading fa-solid fa-spinner fa-2xl" />
+  <i class="loading fa-solid fa-spinner fa-2xl"></i>
   <h2>Loading..</h2>
 </div>
 

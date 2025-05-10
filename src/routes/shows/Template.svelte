@@ -1,14 +1,21 @@
-<script>
+<script lang="ts">
+  interface Props {
+    top?: import('svelte').Snippet;
+    content?: import('svelte').Snippet;
+    sidebar?: import('svelte').Snippet;
+  }
+
+  let { top, content, sidebar }: Props = $props();
 </script>
 
 <div class="grid-container">
   <div class="top">
-    <slot name="top" />
+    {@render top?.()}
   </div>
   <div class="col1">
-    <slot name="content" />
+    {@render content?.()}
   </div>
-  <div class="col2"><slot name="sidebar" /></div>
+  <div class="col2">{@render sidebar?.()}</div>
 </div>
 
 <style>

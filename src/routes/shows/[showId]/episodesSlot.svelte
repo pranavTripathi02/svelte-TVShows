@@ -1,6 +1,6 @@
-<script>
-  export let seasonList;
-  // console.log(seasonList);
+<script lang="ts">
+  let { seasonList } = $props();
+  
 </script>
 
 <div class="episodes-list">

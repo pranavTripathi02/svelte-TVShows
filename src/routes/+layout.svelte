@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
   import "@fortawesome/fontawesome-free/css/all.min.css";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
+  interface Props {
+    children?: import("svelte").Snippet;
+  }
+
+  let { children }: Props = $props();
   // import { onMount } from "svelte";
   // import Loading from "../components/Loading.svelte";
   // let isPageLoaded = true;
@@ -16,12 +21,13 @@
   <!-- {#if isPageLoaded} -->
   <!--   <Loading /> -->
   <!-- {/if} -->
-  <slot />
+  {@render children?.()}
 </main>
 
 <Footer />
 
 <style>
+  @import "tailwindcss";
   main {
     /* min-width: fit-content; */
     /* max-width: 100px; */

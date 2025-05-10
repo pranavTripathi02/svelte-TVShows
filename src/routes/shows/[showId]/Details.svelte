@@ -1,9 +1,14 @@
-<script>
+<script lang="ts">
   import CastSlot from "./castSlot.svelte";
   import EpisodesSlot from "./episodesSlot.svelte";
   import ImageSlot from "./imageSlot.svelte";
-  // import RelatedSlot from "./relatedSlot.svelte";
-  export let data;
+  
+  interface Props {
+    // import RelatedSlot from "./relatedSlot.svelte";
+    data: any;
+  }
+
+  let { data }: Props = $props();
   // $: ({ summary, network, showSeasons, showImages, showCast } = data);
   const { summary, network, showSeasons, showImages, showCast } = data;
   // console.log(data);

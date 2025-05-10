@@ -1,6 +1,11 @@
-<script>
+<script lang="ts">
   import "@fortawesome/fontawesome-free/css/all.min.css";
   import SuggestionsSidebar from "../../components/SuggestionsSidebar.svelte";
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
   // import { onMount } from "svelte";
   // import Loading from "../components/Loading.svelte";
   // let isPageLoaded = true;
@@ -11,7 +16,7 @@
 
 <!-- <div class="grid-container"> -->
 <main>
-  <slot />
+  {@render children?.()}
 </main>
 
 <!-- <div class="col1"> -->

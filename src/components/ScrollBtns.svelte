@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
 
-  export let elId;
+  let { elId } = $props();
   // console.log(elId);
 
-  let leftStat = true;
-  let rightStat = true;
+  let leftStat = $state(true);
+  let rightStat = $state(true);
   let el;
 
   const checkBtnStats = () => {
@@ -47,17 +47,17 @@
 
 <button
   class="nav-btn nav-btn-left"
-  on:click={() => handleBtnClick({ dir: "left" })}
+  onclick={() => handleBtnClick({ dir: "left" })}
   class:disabled={!leftStat}
 >
-  <i class="fa-solid fa-chevron-left fa-xl" />
+  <i class="fa-solid fa-chevron-left fa-xl"></i>
 </button>
 <button
   class="nav-btn nav-btn-right"
-  on:click={() => handleBtnClick({ dir: "right" })}
+  onclick={() => handleBtnClick({ dir: "right" })}
   class:disabled={!rightStat}
 >
-  <i class="fa-solid fa-chevron-right fa-xl" />
+  <i class="fa-solid fa-chevron-right fa-xl"></i>
 </button>
 
 <style>

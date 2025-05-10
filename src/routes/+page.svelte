@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import Carousel from "../components/Carousel.svelte";
   import Categories from "../components/Categories.svelte";
   import ShowsHorizontal from "../components/ShowsHorizontal.svelte";
   import Loading from "../components/Loading.svelte";
-  export let data;
-  $: ({ featuredShows, topTen, popularTen, categories } = data);
+  let { data } = $props();
+  let { featuredShows, topTen, popularTen, categories } = $derived(data);
 </script>
 
 <div>

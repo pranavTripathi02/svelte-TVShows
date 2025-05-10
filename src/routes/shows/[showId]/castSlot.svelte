@@ -1,12 +1,12 @@
-<script>
-  export let castList;
+<script lang="ts">
+  let { castList } = $props();
 </script>
 
 <h2 class="title"><a class="title-link" href="/">Top Cast</a></h2>
 <div class="cast-list">
   {#each castList as cast}
     <div class="cast-info">
-      <a href="/"> <span class="link" /></a>
+      <a href="/"> <span class="link"></span></a>
       <img src={cast.person?.image?.medium} alt="" class="cast-info-photo" />
       <div class="cast-info-name">{cast.person.name}</div>
       <div class="cast-info-character">

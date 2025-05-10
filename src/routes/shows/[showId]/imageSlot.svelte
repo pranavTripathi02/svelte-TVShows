@@ -1,5 +1,5 @@
-<script>
-  export let imageList;
+<script lang="ts">
+  let { imageList } = $props();
   const bannerImage = imageList.find((img) => img.type === "banner");
   const imageGallery = imageList.filter((img) => img.type !== "banner");
   // $: console.log(imageList);

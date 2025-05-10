@@ -1,17 +1,17 @@
-<script>
-  export let show;
-  // let fallback = "http://placekitten.com/800/600";
+<script lang="ts">
+  let { show } = $props();
+  
   // console.log(show);
 </script>
 
 <div class="card-container" data-sveltekit-preload-data>
-  <a href="/shows/{show?.id}"> <span class="link" /></a>
+  <a href="/shows/{show?.id}"> <span class="link"></span></a>
   <img class="card-image" src={show?.image?.medium} alt="show-poster" />
   <div class="card-info">
     <p class="card-info-title clamp-2">{show?.name}</p>
     {#if show?.rating?.average > 0}
       <div class="card-info-rating">
-        <i class="card-info-rating-stars fa-solid fa-star" />
+        <i class="card-info-rating-stars fa-solid fa-star"></i>
         <p>{show?.rating?.average}</p>
       </div>
     {/if}

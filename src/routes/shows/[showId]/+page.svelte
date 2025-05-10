@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
   import Loading from "../../../components/Loading.svelte";
   import Details from "./Details.svelte";
   import SuggestionsSidebar from "../../../components/SuggestionsSidebar.svelte";
   import TopInfo from "./TopInfo.svelte";
   import Template from "../Template.svelte";
 
-  export let data;
-  $: ({
+  let { data } = $props();
+  let {
     name,
     averageRuntime,
     genres,
@@ -16,9 +16,9 @@
     status,
     summary,
     rating,
-  } = data?.showInfo);
-  $: ({ showImages, showCast, showSeasons } = data);
-  $: backImages = showImages.filter((item) => item.type === "background");
+  } = $derived(data?.showInfo);
+  let { showImages, showCast, showSeasons } = $derived(data);
+  let backImages = $derived(showImages.filter((item) => item.type === "background"));
 </script>
 
 <!-- {#if data.loading} -->
@@ -39,12 +39,18 @@
 <!-- {/if} -->
 
 <Template>
-  <TopInfo slot="top" data={{ name, image, backImages, genres }} />
-  <Details
-    slot="content"
-    data={{ summary, network, showSeasons, showImages, showCast }}
-  />
-  <SuggestionsSidebar slot="sidebar" />
+  {#snippet top()}
+    <TopInfo  data={{ name, image, backImages, genres }} />
+  {/snippet}
+  {#snippet content()}
+    <Details
+      
+      data={{ summary, network, showSeasons, showImages, showCast }}
+    />
+  {/snippet}
+  {#snippet sidebar()}
+    <SuggestionsSidebar  />
+  {/snippet}
 </Template>
 
 <style>

@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
   import Card from "./Card.svelte";
   import ScrollBtns from "./ScrollBtns.svelte";
 
-  export let data;
-  export let title;
+  let { data, title } = $props();
 </script>
 
 <section class:hidden={data.length < 1}>

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import ScrollBtns from "./ScrollBtns.svelte";
   import Tab from "./Tab.svelte";
 
-  export let categories;
-  // console.log(categories);
+  let { categories } = $props();
+  
 </script>
 
 <h2 class="title">Shows by Categories</h2>

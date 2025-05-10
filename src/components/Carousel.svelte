@@ -1,9 +1,9 @@
-<script>
-  export let featuredShows;
+<script lang="ts">
 
   import { onDestroy } from "svelte";
   import { sineInOut } from "svelte/easing";
   import { tweened } from "svelte/motion";
+  let { featuredShows } = $props();
 
   const DURATION = 10000;
   const queuedItemNum = [1, 2, 3];
@@ -13,7 +13,7 @@
     easing: sineInOut,
   });
 
-  let itemIdx = 0;
+  let itemIdx = $state(0);
   const intervalId = setInterval(() => {
     if (itemIdx === 9) itemIdx = 0;
     else itemIdx++;
@@ -29,7 +29,7 @@
 <h1 class="title">Featured</h1>
 <div class="grid-container">
   <main class="main-container">
-    <a href={featuredShows[itemIdx]?.url}><span class="link" /></a>
+    <a href={featuredShows[itemIdx]?.url}><span class="link"></span></a>
     <img
       class="main-image"
       src={featuredShows[itemIdx]?.image?.original}
@@ -42,7 +42,7 @@
         </h4>
         {#if featuredShows[itemIdx]?.rating?.average > 0}
           <div class="rating">
-            <i class="rating-stars fa-solid fa-star" />
+            <i class="rating-stars fa-solid fa-star"></i>
             <p class="rating-val">
               {featuredShows[itemIdx]?.rating?.average}
             </p>
@@ -60,14 +60,14 @@
       </p>
     </div>
 
-    <progress class="progress-bar" value={$progress} />
+    <progress class="progress-bar" value={$progress}></progress>
     <!-- progress bar -->
   </main>
   <div class="queued-container flex">
     {#each queuedItemNum as showIdx}
       <div class="queued-show flex">
         <a href={featuredShows[(showIdx + itemIdx) % 10]?.url}>
-          <span class="link" />
+          <span class="link"></span>
         </a>
         <img
           class="queued-image"
@@ -81,7 +81,7 @@
             </h5>
             {#if featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}
               <div class="rating">
-                <i class="rating-stars fa-solid fa-star" />
+                <i class="rating-stars fa-solid fa-star"></i>
                 <p>
                   {featuredShows[(showIdx + itemIdx) % 10]?.rating?.average}
                 </p>

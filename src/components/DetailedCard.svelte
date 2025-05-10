@@ -1,10 +1,10 @@
-<script>
-  export let show;
-  // console.log(show);
+<script lang="ts">
+  let { show } = $props();
+  
 </script>
 
 <div class="card-container">
-  <a href={show?.url}> <span class="link" /></a>
+  <a href={show?.url}> <span class="link"></span></a>
   <img class="card-image" src={show?.image?.medium} alt="show-poster" />
   <div class="card-info">
     <b class="card-info-title clamp-2">{show?.name}</b>

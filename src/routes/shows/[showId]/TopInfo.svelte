@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import Tab from "../../../components/Tab.svelte";
 
-  export let data;
-  $: ({ name, image, backImages, genres } = data);
+  let { data } = $props();
+  let { name, image, backImages, genres } = $derived(data);
 </script>
 
 <div class="top">
