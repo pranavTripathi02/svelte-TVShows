@@ -1,47 +1,58 @@
-<header class="bg-background-navw-full py-2">
-  <div class="container mx-auto flex justify-center gap-12">
-    <nav class="flex justify-center">
-      <a class=" decoration-none px-3 py-2 hover:underline" href="/"> Home </a>
-      <a class="decoration-accent px-3 py-2 hover:underline" href="/">
-        Movies
+<script>
+  import SearchIcon from "../assets/icons/search_icon.svelte";
+</script>
+
+<header class="bg-background-400 w-full py-4">
+  <div class="container mx-auto flex justify-between gap-4 lg:gap-12">
+    <nav class="flex items-center justify-center gap-4 xl:gap-8">
+      <a class="group relative isolate h-fit" href="/">
+        <span
+          class="before:bg-accent-300 before:absolute before:h-full before:w-0 before:mix-blend-difference before:duration-500 group-hover:before:w-4"
+          >Home</span
+        >
       </a>
-      <a class="decoration-accent px-3 py-2 hover:underline" href="/">
-        TV Shows
+      <a class="group relative isolate h-fit" href="/">
+        <span
+          class="before:bg-accent-300 before:absolute before:h-full before:w-0 before:mix-blend-difference before:duration-500 group-hover:before:w-4"
+        >
+          Movies
+        </span>
       </a>
-      <a class="decoration-accent px-3 py-2 hover:underline" href="/">
-        Watch
+      <a class="group relative isolate h-fit" href="/">
+        <span
+          class="before:bg-accent-300 text-nowrap before:absolute before:h-full before:w-0 before:mix-blend-difference before:duration-500 group-hover:before:w-4"
+        >
+          TV Shows
+        </span>
       </a>
     </nav>
-    <div class="group flex items-center rounded-md px-4">
+    <div
+      class="group outline-background-100 focus-within:outline-accent-400/40 relative flex items-center overflow-clip rounded outline duration-300 lg:min-w-1/3 xl:min-w-1/2"
+    >
       <input
         type="text"
         placeholder="Search CeeTV"
-        class="w-full bg-transparent py-0 outline-none"
+        class="w-full bg-transparent px-4 py-1 outline-none"
       />
       <!-- search icon -->
       <button
         onclick={(e) => e.preventDefault()}
-        class="h-full w-8"
+        class="bg-background-100 group/searchBtn isolate h-full w-12 hover:cursor-pointer"
         title="Search"
       >
-        <i
-          class="fa-solid fa-search text-text-secondary group-focus-within:text-text-primary py-0"
-        ></i></button
-      >
+        <SearchIcon
+          height="20"
+          width="20"
+          classString="m-auto group-hover/searchBtn:text-accent-300 duration-300"
+        />
+      </button>
     </div>
     <nav class="flex items-center gap-8">
       <a class="nav-item" href="/watchlist">
-        <div class="group flex gap-2">
-          <!-- bookmark icon -->
-          <i class="fa-solid fa-bookmark group-hover:text-accent fa-lg m-auto"
-          ></i>
-          <span class="decoration-accent group-hover:underline">Watchlist</span>
+        <div class="group relative isolate flex gap-2">
+          <span class="">Watchlist</span>
         </div>
       </a>
-      <div>
-        <i class="fa-solid fa-sun group-hover:text-accent fa-lg m-auto"></i>
-      </div>
-      <!-- theme menu -->
     </nav>
   </div>
 </header>
