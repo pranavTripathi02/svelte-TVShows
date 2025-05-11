@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css?family=Inter");
+@import "tailwindcss";
+
+@theme {
+  /* colors */
+  --color-background-100: oklch(0.36 0.01 0);
+  --color-background-200: oklch(0.3 0 0);
+  --color-background-300: oklch(0.24 0 0);
+  --color-background-400: oklch(0.22 0 0);
+  --color-background-500: oklch(0.18 0 0);
+
+  --color-text-100: oklch(0.92 0 0);
+  --color-text-200: oklch(0.84 0 0);
+  --color-text-300: oklch(0.6 0 0);
+  --color-text-400: oklch(0.42 0 0);
+  --color-text-500: oklch(0.21 0 0);
+
+  --color-accent-100: oklch(0.96 0.0794 101.57);
+  --color-accent-200: oklch(0.89 0.1294 100.42);
+  --color-accent-300: oklch(0.84 0.1497 98.82);
+  --color-accent-400: oklch(0.64 0.1201 95.3);
+  --color-accent-500: oklch(0.47 0.0904 92.41);
+
+  --color-success-100: oklch(0.76 0.1997 146.66);
+  --color-success-200: oklch(0.66 0.1915 145.58);
+  --color-success-300: oklch(0.33 0.0886 146.59);
+
+  --color-danger-100: oklch(0.7 0.2384 24.04);
+  --color-danger-200: oklch(0.62 0.2824 24.04);
+  --color-danger-300: oklch(0.5 0.226 24.04);
+
+  --color-calm-100: oklch(0.68 0.1361 249.44);
+  --color-calm-200: oklch(0.61 0.1361 249.44);
+  --color-calm-300: oklch(0.34 0.1361 249.44);
+
+  /* typography */
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.9rem;
+  --text-3xl: 2.4rem;
+}
+
+body {
+  background-color: var(--color-background-500);
+  color: var(--color-text-100);
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-weight: 600;
+  font-size: var(--text-2xl);
+}
+
+h4,
+h5 {
+  font-weight: 500;
+  font-size: var(--text-xl);
+}

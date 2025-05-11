@@ -16,10 +16,4 @@
 </div>
 
 <style>
-  :global(.title:before) {
-    content: "";
-    background-color: var(--accent);
-    padding: 1px;
-    margin: 5px;
-  }
 </style>

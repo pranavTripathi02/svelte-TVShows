@@ -3,7 +3,6 @@
   import Tab from "./Tab.svelte";
 
   let { categories } = $props();
-  
 </script>
 
 <h2 class="title">Shows by Categories</h2>

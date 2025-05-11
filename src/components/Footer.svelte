@@ -1,8 +1,12 @@
-<footer>
+<footer
+  class="border-[rgba(var(--rgbprimary), 0.5)] flex w-full items-center border-b-[1px]"
+>
   <nav>
-    <a href="/about">About us</a>
-    <a href="/help">Help</a>
-    <a href="https://github.com/pranavTripathi02/svelte-TVShows">Source</a>
+    <a class="" href="/about">About us</a>
+    <a class="" href="/help">Help</a>
+    <a class="" href="https://github.com/pranavTripathi02/svelte-TVShows"
+      >Source</a
+    >
   </nav>
   <!-- <div>copyright</div> -->
 </footer>
