@@ -1,15 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import ChevronLeftIcon from "../assets/icons/chevron_left_icon.svelte";
+  import ChevronRightIcon from "../assets/icons/chevron_right_icon.svelte";
 
   let { elId } = $props();
-  // console.log(elId);
 
   let leftStat = $state(true);
   let rightStat = $state(true);
-  let el;
+  let el: HTMLElement | null;
 
   const checkBtnStats = () => {
-    // console.log(el);
     if (el) {
       if (el?.scrollLeft <= 0) leftStat = false;
       else if (el?.scrollLeft > 0) leftStat = true;
@@ -21,75 +21,35 @@
   };
 
   onMount(() => {
-    // console.log("hi");
     el = document.getElementById(elId);
     checkBtnStats();
   });
 
   const handleBtnClick = ({ dir }) => {
-    // console.log(el);
     const step = dir === "left" ? -30 : 30;
     let scrollAmount = 0;
-    // //console.log(podcastBanner);
-    // podcastBanner.current.scrollLeft += scrollAmount;
-    // podcastBanner.current.scrollLeft
-    // mainDiv.scrollLeft += 10;
     const sliderTimer = setInterval(() => {
       if (el) el.scrollLeft += step;
       scrollAmount += Math.abs(step);
       if (scrollAmount >= 350) clearInterval(sliderTimer);
-      // console.log(el);
-      // console.log(el?.scrollLeftMax);
       checkBtnStats();
     }, 15);
   };
 </script>
 
 <button
-  class="nav-btn nav-btn-left"
+  class="hover:bg-background-400/60 border-text-100/80 absolute inset-y-0 -left-8 z-10 my-auto h-fit -translate-y-10 cursor-pointer rounded-full border-1 p-1 backdrop-blur-[2px] duration-200"
   onclick={() => handleBtnClick({ dir: "left" })}
-  class:disabled={!leftStat}
+  class:hidden={!leftStat}
+  aria-label="scroll left"
 >
-  <i class="fa-solid fa-chevron-left fa-xl"></i>
+  <ChevronLeftIcon height="48" width="48" />
 </button>
 <button
-  class="nav-btn nav-btn-right"
+  class="hover:bg-background-400/60 border-text-100/80 absolute inset-y-0 -right-8 z-10 my-auto h-fit -translate-y-10 cursor-pointer rounded-full border-1 p-1 backdrop-blur-[2px] duration-200"
   onclick={() => handleBtnClick({ dir: "right" })}
-  class:disabled={!rightStat}
+  class:hidden={!rightStat}
+  aria-label="scroll right"
 >
-  <i class="fa-solid fa-chevron-right fa-xl"></i>
+  <ChevronRightIcon height="48" width="48" />
 </button>
-
-<style>
-  .nav-btn {
-    position: absolute;
-    background: transparent;
-    /* border-radius: 100%; */
-    padding: 1rem;
-    border: none;
-    color: rgba(var(--rgbtext), 1);
-    cursor: pointer;
-    /* margin: auto; */
-    font-size: 1rem;
-    z-index: 1;
-  }
-  .nav-btn:hover {
-    color: var(--accent);
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 100%;
-  }
-  .nav-btn-left {
-    left: -1.5rem;
-  }
-  .nav-btn-right {
-    right: -1.5rem;
-  }
-  @media screen and (min-width: 1024px) {
-    /* .nav-btn { */
-    /*   border: 1px solid rgba(var(--rgbtext), 0.8); */
-    /* } */
-  }
-  .disabled {
-    display: none;
-  }
-</style>
