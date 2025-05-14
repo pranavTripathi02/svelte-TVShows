@@ -1,14 +1,16 @@
 <script lang="ts">
   import Card from "./Card.svelte";
   import ScrollBtns from "./ScrollBtns.svelte";
+  import type { TShow } from "../types";
+  import SectionHeader from "./SectionHeader.svelte";
 
-  let { data, title } = $props();
+  let { data, title }: { data: TShow[]; title: string } = $props();
 </script>
 
-<section class:hidden={data.length < 1}>
-  <h2 class="title">{title}</h2>
-  <div class="shows-container">
-    <div id={`${title}-carousel`} class="shows-carousel">
+<section class:hidden={data.length < 1} class="mt-12">
+  <SectionHeader {title} />
+  <div class="relative m-4 flex items-center">
+    <div id={`${title}-carousel`} class="flex overflow-hidden">
       {#each data as show}
         <Card {show} />
       {/each}
@@ -18,23 +20,4 @@
 </section>
 
 <style>
-  .hidden {
-    display: none;
-  }
-  .shows-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    margin: 0 2rem;
-  }
-  .shows-carousel {
-    overflow: hidden;
-    display: flex;
-  }
-  .title:before {
-    content: "";
-    background-color: var(--accent);
-    padding: 1px;
-    margin: 5px;
-  }
 </style>
