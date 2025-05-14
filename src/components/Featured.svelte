@@ -78,12 +78,17 @@
   });
 </script>
 
-<h1 class="title">Featured</h1>
+<h2 class="relative my-0 text-3xl font-semibold">
+  <span
+    class="before:bg-accent-300 before:absolute before:inset-0 before:-left-2.5 before:my-auto before:h-4/5 before:w-1.5"
+  ></span>
+  Spotlight
+</h2>
 
-<div class="relative isolate">
+<div class="relative isolate mt-8 overflow-clip">
   <!-- Scene -->
   <div
-    class="relative mx-auto mt-10 h-[400px] w-full perspective-[1000px] sm:w-3/5 lg:h-[600px] lg:w-1/3 xl:h-[720px] xl:w-1/2"
+    class="relative mx-auto h-[400px] w-full perspective-[1000px] sm:w-3/5 lg:h-[600px] lg:w-1/3 xl:h-[720px] xl:w-1/2"
   >
     <!-- Carousel -->
     <div
