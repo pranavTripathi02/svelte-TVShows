@@ -1,5 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Inter");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
+:root {
+  font-family: "Inter", sans-serif;
+}
 
 @theme {
   /* colors */
@@ -45,21 +49,4 @@
 body {
   background-color: var(--color-background-500);
   color: var(--color-text-100);
-}
-
-h1,
-h2 {
-  font-weight: 700;
-  font-size: var(--text-3xl);
-}
-
-h3 {
-  font-weight: 600;
-  font-size: var(--text-2xl);
-}
-
-h4,
-h5 {
-  font-weight: 500;
-  font-size: var(--text-xl);
 }
