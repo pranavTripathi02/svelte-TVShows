@@ -19,7 +19,9 @@
 
 <Header />
 
-<main class="mx-4 mx-auto my-8 h-full max-w-full xl:w-3/5 xl:max-w-[1280px]">
+<main
+  class="mx-4 mx-auto my-8 h-full max-w-full px-2 md:px-8 xl:w-3/5 xl:max-w-[1280px]"
+>
   <!-- {#if isPageLoaded} -->
   <!--   <Loading /> -->
   <!-- {/if} -->
