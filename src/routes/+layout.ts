@@ -1,7 +1,15 @@
 import { pageStore } from "../stores/store";
+import type { TShow } from "../types";
 
 export async function load({ fetch }) {
-  const data = {
+  const data: {
+    shows: TShow[];
+    topTen: TShow[];
+    categories: string[];
+    featuredShows: TShow[];
+    popularTen: TShow[];
+    loading: boolean;
+  } = {
     shows: [],
     topTen: [],
     categories: [],
@@ -20,7 +28,7 @@ export async function load({ fetch }) {
       const res = await fetch(`https://api.tvmaze.com/shows?page=${pageNum}`);
       await res
         .json()
-        .then((raw) => {
+        .then((raw: TShow[]) => {
           data.shows = raw.sort((a, b) => b?.weight - a?.weight);
 
           data.featuredShows = data.shows?.slice(0, 10);
@@ -38,8 +46,7 @@ export async function load({ fetch }) {
             });
           }
         })
-        .catch((err) => console.log("eror in page.js"));
-      // showStore.set({ ...data, loading: false });
+        .catch((err) => console.error("Problem while fetching shows.", err));
     } catch (err) {
       console.error("error loading data", err);
     } finally {

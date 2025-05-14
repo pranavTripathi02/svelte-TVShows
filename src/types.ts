@@ -1,7 +1,7 @@
 export type TShow = {
   id: number;
   url: string;
-  title: string;
+  name: string;
   type: string;
   language: string;
   genres: string[];

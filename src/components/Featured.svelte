@@ -94,7 +94,7 @@
       {#each featuredShows as show, idx}
         <!-- Panels -->
         <a
-          class="carousel__panel absolute left-3 isolate h-full w-full duration-1000"
+          class="carousel__panel group absolute left-3 isolate h-full w-full duration-1000"
           style:rotateY={idx * (360 / PANELCOUNT)}
           style:filter={idx !== currItemIdx
             ? "blur(2px) brightness(65%)"
@@ -102,15 +102,15 @@
           style:pointer-events={idx !== currItemIdx ? "none" : "auto"}
           style:cursor={idx !== currItemIdx ? "none" : "pointer"}
           style:tranlateZ={translateCarousel}
-          href="/"
+          href="/shows/{show.id}"
         >
           <img
             alt="show poster"
-            class="size-full scale-90 object-contain object-center"
+            class="size-full scale-90 object-contain object-center duration-500 group-hover:brightness-85"
             src={show.image?.original ?? show.image.medium}
           />
           <div
-            class="to-none absolute top-0 right-0 bottom-0 left-0 z-10 mt-auto flex flex-col justify-end bg-gradient-to-t from-black/75 from-10% pb-10"
+            class="to-none absolute top-0 right-0 bottom-0 left-0 z-10 mt-auto flex flex-col justify-end bg-gradient-to-t from-black/65 from-10% pb-10"
           >
             <div>
               <h4 class="text-xl">
@@ -149,7 +149,7 @@
   </div>
 
   <button
-    class="bg-text-300/85 absolute top-0 bottom-0 left-0 z-20 my-auto h-fit cursor-pointer rounded-full p-4 sm:left-10 xl:-left-20"
+    class="bg-text-300/50 absolute top-0 bottom-0 left-0 z-20 my-auto h-fit cursor-pointer rounded-full p-4 sm:left-10 xl:-left-20"
     onclick={() => prevPanel()}
     aria-label="Scroll carousel to previous show"
   >
@@ -169,7 +169,7 @@
   </button>
 
   <button
-    class="bg-text-300/85 absolute top-0 right-0 bottom-0 z-20 my-auto h-fit cursor-pointer rounded-full p-4 sm:right-10 xl:-right-20"
+    class="bg-text-300/50 absolute top-0 right-0 bottom-0 z-20 my-auto h-fit cursor-pointer rounded-full p-4 sm:right-10 xl:-right-20"
     onclick={() => nextPanel()}
     aria-label="Scroll carousel to next show"
   >
