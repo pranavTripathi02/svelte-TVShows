@@ -43,7 +43,7 @@
   class:hidden={!leftStat}
   aria-label="scroll left"
 >
-  <ChevronLeftIcon height="48" width="48" />
+  <ChevronLeftIcon classString="size-8 xl:h-12 xl:w-12" />
 </button>
 <button
   class="hover:bg-background-400/60 border-text-100/80 absolute inset-y-0 -right-8 z-10 my-auto h-fit -translate-y-10 cursor-pointer rounded-full border-1 p-1 backdrop-blur-[2px] duration-200"
@@ -51,5 +51,5 @@
   class:hidden={!rightStat}
   aria-label="scroll right"
 >
-  <ChevronRightIcon height="48" width="48" />
+  <ChevronRightIcon classString="size-8 xl:h-12 xl:w-12" />
 </button>

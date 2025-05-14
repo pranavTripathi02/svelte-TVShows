@@ -10,7 +10,10 @@
 <section class:hidden={data.length < 1} class="mt-12">
   <SectionHeader {title} />
   <div class="relative m-4 flex items-center">
-    <div id={`${title}-carousel`} class="flex overflow-hidden">
+    <div
+      id={`${title}-carousel`}
+      class="flex overflow-scroll [scrollbar-width:none] lg:overflow-hidden"
+    >
       {#each data as show}
         <Card {show} />
       {/each}
