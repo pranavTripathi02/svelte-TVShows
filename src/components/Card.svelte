@@ -1,127 +1,58 @@
 <script lang="ts">
-  let { show } = $props();
-  
-  // console.log(show);
+  import type { TShow } from "../types";
+  import StarIcon from "../assets/icons/star_icon.svelte";
+
+  let { show }: { show: TShow } = $props();
 </script>
 
-<div class="card-container" data-sveltekit-preload-data>
-  <a href="/shows/{show?.id}"> <span class="link"></span></a>
-  <img class="card-image" src={show?.image?.medium} alt="show-poster" />
-  <div class="card-info">
-    <p class="card-info-title clamp-2">{show?.name}</p>
+<div
+  class="bg-background-300 group to-background-500 relative isolate mx-1 box-border flex max-w-24 min-w-24 flex-col overflow-hidden rounded bg-gradient-to-b from-transparent from-80% pb-4 sm:max-w-32 sm:min-w-32 md:max-w-48 md:min-w-48"
+  data-sveltekit-preload-data
+>
+  <a aria-label="Open show details page" href="/shows/{show?.id}">
+    <span class="absolute inset-0 z-10 h-full w-full"></span>
+  </a>
+  <div class="relative h-fit w-full">
+    <img
+      class="max-h-full w-full bg-black object-contain object-center duration-200 group-hover:brightness-60"
+      src={show.image.medium}
+      alt="show-poster"
+    />
+    <span
+      class="absolute inset-0 bg-gradient-to-t from-black/30 from-50% to-transparent"
+    ></span>
+  </div>
+  <!-- show info -->
+  <div
+    class="text-text-200 mx-1 grid h-full grid-rows-[1fr_1rem_1fr] gap-1 pt-2 brightness-90 group-hover:brightness-100 xl:mx-2"
+  >
+    <div class="row-start-0 my-0 h-full">
+      <span class="group-hover:text-text-100 line-clamp-2 h-full text-ellipsis"
+        >{show?.name}</span
+      >
+    </div>
+    <!-- show rating -->
     {#if show?.rating?.average > 0}
-      <div class="card-info-rating">
-        <i class="card-info-rating-stars fa-solid fa-star"></i>
+      <div
+        class="text-text-200 row-start-2 flex h-fit items-center gap-1 text-sm"
+      >
+        <StarIcon
+          class="text-yellow-300"
+          width="12"
+          height="12"
+          aria-label="show rating"
+        />
         <p>{show?.rating?.average}</p>
       </div>
     {/if}
-    <p class="card-info-genres clamp-1">
+    <!-- show genres -->
+    <p class="text-text-200/80 row-start-3 line-clamp-2 text-wrap">
       {#each show?.genres as genre, idx}
-        <span>
-          {genre}{idx !== show?.genres.length - 1 ? ", " : ""}
-        </span>
+        <span>{genre}{idx !== show?.genres.length - 1 ? ", " : ""}</span>
       {/each}
     </p>
   </div>
 </div>
 
 <style>
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    background: var(--secondary);
-    position: relative;
-    margin: 0.5rem;
-    /* min-height: 12rem; */
-    /* height: 100%; */
-    min-width: 12rem;
-    max-width: 12rem;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid rgba(var(--rgbtext), 0.1);
-    box-sizing: border-box;
-  }
-  .link {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  .card-image {
-    height: 16rem;
-    object-position: center;
-    object-fit: cover;
-    mask-image: linear-gradient(
-      to top,
-      rgba(255, 255, 255, 0.8),
-      rgba(0, 0, 0, 1)
-    );
-  }
-  .card-info {
-    display: flex;
-    flex-direction: column;
-    /* position: absolute; */
-    bottom: 0;
-    /* top: 55%; */
-    margin: 0 0.5rem 0 0.5rem;
-  }
-  .card-info > * {
-    opacity: 0.7;
-  }
-  .card-info-title {
-    font-weight: 500;
-    opacity: 1;
-  }
-  .card-info-rating {
-    display: flex;
-    font-size: 0.8rem;
-  }
-  .card-info-rating > * {
-    margin: 0.5rem 0.5rem 0 0;
-  }
-  .card-info-rating-stars {
-    color: yellow;
-  }
-  .card-info-genres {
-    color: var(--primary);
-  }
-
-  .clamp-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-  }
-  .clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .card-info-title {
-    /* max-lines: 1; */
-    overflow: hidden;
-    bottom: 10px;
-  }
-  .card-container:hover > .card-info > .card-info-title {
-    color: var(--accent);
-    text-decoration: underline;
-  }
-  .link:hover {
-    color: var(--accent);
-    text-decoration: underline;
-  }
-  @media screen and (max-width: 724px) {
-    .card-container {
-      min-width: 6rem;
-      max-width: 6rem;
-      margin: 0.4rem;
-    }
-    .card-image {
-      height: 10rem;
-    }
-  }
 </style>
