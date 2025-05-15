@@ -1,15 +1,20 @@
 <script lang="ts">
+  import type { HTMLAttributes } from "svelte/elements";
+
   let {
     height = "24",
     width = "24",
-    classString = "",
-  }: { height?: string; width?: string; classString?: string } = $props();
+    ...rest
+  }: {
+    height?: string;
+    width?: string;
+  } & HTMLAttributes<SVGSVGElement> = $props();
 </script>
 
 <svg
   {width}
   {height}
-  class={classString}
+  {...rest}
   viewBox="0 0 15 15"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
