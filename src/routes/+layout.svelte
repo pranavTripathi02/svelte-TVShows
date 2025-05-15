@@ -17,6 +17,13 @@
   // });
 </script>
 
+<svelte:head>
+  <title>CTV</title>
+  <meta
+    name="description"
+    content="This is where the description goes for SEO"
+  />
+</svelte:head>
 <Header />
 
 <main

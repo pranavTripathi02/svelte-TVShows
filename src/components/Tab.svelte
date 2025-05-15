@@ -1,14 +1,8 @@
 <script lang="ts">
-  
-  interface Props {
-    // console.log("tab");
-    title: any;
-  }
-
-  let { title }: Props = $props();
+  let { title }: { title: string } = $props();
 </script>
 
-<div class="tab-container">
+<div class="border-text-500 rounded-lg border">
   {title}
   <a href="/shows/categories/{title}"><span class="link"></span></a>
 </div>
