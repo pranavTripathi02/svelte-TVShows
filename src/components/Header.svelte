@@ -43,7 +43,7 @@
         <SearchIcon
           height="20"
           width="20"
-          classString="m-auto group-hover/searchBtn:text-accent-300 duration-300"
+          class="group-hover/searchBtn:text-accent-300 m-auto duration-300"
         />
       </button>
     </div>

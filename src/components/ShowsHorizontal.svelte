@@ -12,7 +12,7 @@
   <div class="relative m-4 flex items-center">
     <div
       id={`${title}-carousel`}
-      class="flex overflow-scroll [scrollbar-width:none] lg:overflow-hidden"
+      class="flex gap-2 overflow-scroll [scrollbar-width:none] lg:overflow-hidden"
     >
       {#each data as show}
         <Card {show} />
