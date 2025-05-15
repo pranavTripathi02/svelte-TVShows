@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tab from "../../../components/Tab.svelte";
+  // import Tab from "../../../components/Tab.svelte";
 
   let { data } = $props();
   let { name, image, backImages, genres } = $derived(data);
@@ -18,7 +18,7 @@
   </div>
   <div class="genre-tabs">
     {#each genres as genre}
-      <Tab title={genre} />
+      <!-- <Tab title={genre} /> -->
     {/each}
   </div>
 </div>

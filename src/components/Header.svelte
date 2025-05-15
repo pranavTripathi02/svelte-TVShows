@@ -33,17 +33,20 @@
         type="text"
         placeholder="Search CeeTV"
         class="w-full bg-transparent px-4 py-1 outline-none"
+        aria-label="Search shows input field"
       />
       <!-- search icon -->
       <button
         onclick={(e) => e.preventDefault()}
         class="bg-background-100 group/searchBtn isolate h-full w-12 hover:cursor-pointer"
         title="Search"
+        aria-label="Search"
       >
         <SearchIcon
           height="20"
           width="20"
           class="group-hover/searchBtn:text-accent-300 m-auto duration-300"
+          aria-label="Search icon"
         />
       </button>
     </div>

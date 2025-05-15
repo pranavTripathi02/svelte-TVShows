@@ -9,8 +9,11 @@
   class="bg-background-300 group to-background-500 relative isolate mx-1 box-border flex max-w-24 min-w-24 flex-col overflow-hidden rounded bg-gradient-to-b from-transparent from-80% pb-4 sm:max-w-32 sm:min-w-32 md:max-w-48 md:min-w-48"
   data-sveltekit-preload-data
 >
-  <a aria-label="Open show details page" href="/shows/{show?.id}">
-    <span class="absolute inset-0 z-10 h-full w-full"></span>
+  <a
+    class="absolute inset-0 z-10 h-full w-full"
+    aria-label="Open show details page"
+    href="/shows/{show?.id}"
+  >
   </a>
   <div class="relative h-fit w-full">
     <img
