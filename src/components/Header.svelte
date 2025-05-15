@@ -3,7 +3,7 @@
 </script>
 
 <header class="bg-background-400 w-full py-4">
-  <div class="container mx-auto flex justify-between gap-4 lg:gap-12">
+  <div class="container mx-auto flex justify-between gap-4 px-4 lg:gap-12">
     <nav class="flex items-center justify-center gap-4 xl:gap-8">
       <a class="group relative isolate h-fit" href="/">
         <span
@@ -11,7 +11,7 @@
           >Home</span
         >
       </a>
-      <a class="group relative isolate h-fit" href="/">
+      <a class="group relative isolate hidden h-fit xl:block" href="/">
         <span
           class="before:bg-accent-300 before:absolute before:h-full before:w-0 before:mix-blend-difference before:duration-500 group-hover:before:w-4"
         >
@@ -27,7 +27,7 @@
       </a>
     </nav>
     <div
-      class="group outline-background-100 focus-within:outline-accent-400/40 relative flex items-center overflow-clip rounded outline duration-300 lg:min-w-1/3 xl:min-w-1/2"
+      class="group outline-background-100 focus-within:outline-accent-400/40 relative flex w-full items-center overflow-clip rounded outline duration-300 lg:max-w-1/3 xl:max-w-1/2"
     >
       <input
         type="text"
@@ -50,7 +50,7 @@
         />
       </button>
     </div>
-    <nav class="flex items-center gap-8">
+    <nav class="hidden items-center gap-8 lg:flex">
       <a class="nav-item" href="/watchlist">
         <div class="group relative isolate flex gap-2">
           <span class="">Watchlist</span>
