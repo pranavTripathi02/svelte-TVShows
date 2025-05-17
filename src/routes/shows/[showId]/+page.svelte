@@ -31,7 +31,7 @@
     <div class="genre-tabs mt-2 flex flex-wrap gap-2">
       {#each genres as genre}
         <a
-          href={`shows/categories/${genre}`}
+          href={`categories/${genre}`}
           class="border-text-500 bg-background-300/50 hover:bg-background-200 hover:border-accent-300/50 my-0 flex min-h-[40px] min-w-[40px] items-center overflow-clip rounded-full border px-4 py-2 leading-4 text-nowrap capitalize duration-200 lg:min-h-max"
           >{genre}</a
         >
@@ -89,7 +89,7 @@
         </button>
       </div>
     {/if}
-    <EpisodesSlot seasonList={_embedded?.seasons} />
+    <!-- <EpisodesSlot seasonList={_embedded?.seasons} /> -->
     <ImageSlot imageList={_embedded?.images} />
     <CastSlot castList={_embedded?.cast} />
   </div>
