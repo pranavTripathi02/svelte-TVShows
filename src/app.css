@@ -41,9 +41,11 @@
   --text-sm: 0.8rem;
   --text-base: 1rem;
   --text-lg: 1.25rem;
-  --text-xl: 1.5rem;
-  --text-2xl: 1.9rem;
-  --text-3xl: 2.4rem;
+  --text-xl: 1.56rem;
+  --text-2xl: 1.95rem;
+  --text-3xl: 2.44rem;
+  --text-4xl: 3.05rem;
+  --text-5xl: 3.81rem;
 }
 
 body {
