@@ -39,21 +39,8 @@
     </div>
     <div class="main-images my-12">
       {#if _embedded?.images.length!!}
-        {@const backImages = _embedded?.images.filter(
-          (item) => item.type === "background",
-        )}
-
-        {#if image}
-          <img src={image?.medium} alt="main-poster" />
-        {/if}
-        {#each backImages as showImg}
-          <img
-            src={showImg.resolutions?.original?.url ||
-              showImg.resolutions.medium.url}
-            alt="show posters"
-          />
-        {/each}
-        <!-- <img src={backImages[0]} alt="" /> -->
+        {@const showImgs = [..._embedded.images]}
+        <ImageSlot imageList={showImgs} />
       {/if}
     </div>
     <div class="my-10">
@@ -90,7 +77,6 @@
       </div>
     {/if}
     <!-- <EpisodesSlot seasonList={_embedded?.seasons} /> -->
-    <ImageSlot imageList={_embedded?.images} />
     <CastSlot castList={_embedded?.cast} />
   </div>
   <!-- <div class="flex-container"> -->
