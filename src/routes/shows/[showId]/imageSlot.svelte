@@ -1,64 +1,42 @@
 <script lang="ts">
+  import ChevronLeftIcon from "../../../assets/icons/chevron_left_icon.svelte";
+  import ChevronRightIcon from "../../../assets/icons/chevron_right_icon.svelte";
+
   let { imageList } = $props();
-  const bannerImage = imageList.find((img) => img.type === "banner");
-  const imageGallery = imageList.filter((img) => img.type !== "banner");
-  // $: console.log(imageList);
+  console.log(imageList, !!imageList.length);
+  let imgIdx = $state(0);
+
+  const prevImg = () => {
+    imgIdx = (imgIdx - 1 + imageList.length) % imageList.length;
+  };
+  const nextImg = () => {
+    imgIdx = (imgIdx + 1) % imageList.length;
+  };
 </script>
 
-{#if bannerImage}
-  <div class="show-banner">
+<div
+  class="group bg-background-400/20 relative isolate h-[200px] w-full overflow-hidden rounded lg:h-[400px] xl:h-[600px]"
+>
+  <button
+    class="hover:not-disabled:text-accent-300 bg-background-400/20 absolute inset-y-0 left-0 z-20 flex h-full w-10 items-center justify-center opacity-0 backdrop-blur-md duration-800 group-hover:opacity-100 disabled:hidden sm:w-16 lg:w-24"
+    onclick={prevImg}
+    disabled={imageList.length <= 1}
+  >
+    <ChevronLeftIcon width="32" height="32" />
+  </button>
+  <div class="flex h-full w-full justify-center overflow-hidden">
     <img
-      class="show-banner-image"
-      src={bannerImage.resolutions?.original?.url}
-      alt="show-banner"
+      src={imageList[imgIdx].resolutions.medium?.url ||
+        imageList[imgIdx].resolutions.original.url}
+      alt=""
+      class="h-full w-auto object-contain object-center"
     />
   </div>
-{/if}
-<h2 class="title"><a href="/">Photos</a></h2>
-<div class="show-photo-gallery">
-  {#each imageGallery as image, idx}
-    {#if idx < 3}
-      <img
-        class="show-gallery-photo"
-        src={image?.resolutions?.medium?.url}
-        alt=""
-      />
-    {/if}
-  {/each}
+  <button
+    class="hover:not-disabled:text-accent-300 bg-background-400/20 absolute inset-y-0 right-0 z-20 flex h-full w-10 items-center justify-center opacity-0 backdrop-blur-md duration-800 group-hover:opacity-100 disabled:hidden sm:w-16 lg:w-24"
+    onclick={nextImg}
+    disabled={imageList.length <= 1}
+  >
+    <ChevronRightIcon width="32" height="32" />
+  </button>
 </div>
-
-<style>
-  a {
-    text-decoration: none;
-    color: var(--text);
-  }
-  a:hover {
-    text-decoration: underline;
-    color: var(--accent);
-  }
-  .show-photo-gallery {
-    display: flex;
-    justify-content: start;
-    overflow: hidden;
-    align-items: center;
-  }
-  .show-gallery-photo {
-    margin-right: 1.5rem;
-    max-width: 10rem;
-    /* align-self: start; */
-  }
-  .show-banner {
-    max-height: 12rem;
-    margin: 2rem auto;
-  }
-  .show-banner-image {
-    max-width: 100%;
-    object-position: center;
-    object-fit: cover;
-  }
-  @media screen and (max-width: 1024px) {
-    .show-banner-image {
-      max-height: 14rem;
-    }
-  }
-</style>
