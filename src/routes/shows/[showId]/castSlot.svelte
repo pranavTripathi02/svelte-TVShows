@@ -7,7 +7,8 @@
 <section class="title mt-12 text-2xl">
   <SectionHeader title="Top Cast" />
   <div
-    class="mx-auto my-8 grid w-full grid-cols-2 place-content-center justify-items-center gap-8 overflow-hidden sm:grid-cols-3 xl:grid-cols-4"
+    class="bg-background-300/50 mx-auto my-4 grid w-full grid-cols-2 place-content-center justify-items-center gap-8 overflow-hidden rounded-lg
+   px-4 py-4 sm:grid-cols-3 xl:grid-cols-4"
   >
     {#each castList as cast}
       <a

@@ -1,12 +1,10 @@
 <script lang="ts">
-  // import Tab from "../../../components/Tab.svelte";
-
   let { data } = $props();
   let { name, image, backImages, genres } = $derived(data);
 </script>
 
 <div class="top">
-  <h1 class="title">{name}</h1>
+  <h1 class="text-3xl">{name}</h1>
   <!-- <p>{status}{premiered}-{status}</p> -->
   <div class="main-images">
     {#if backImages && image}
