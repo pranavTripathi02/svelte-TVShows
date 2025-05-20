@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { PageProps } from "./$types";
-  import EpisodesSlot from "./episodesSlot.svelte";
   import ImageSlot from "./imageSlot.svelte";
   import CastSlot from "./castSlot.svelte";
   import LoadingIcon from "../../../assets/icons/loading_icon.svelte";
@@ -77,7 +76,9 @@
       </div>
     {/if}
     <!-- <EpisodesSlot seasonList={_embedded?.seasons} /> -->
-    <CastSlot castList={_embedded?.cast} />
+    {#if _embedded.cast.length > 0}
+      <CastSlot castList={_embedded?.cast} />
+    {/if}
   </div>
   <!-- <div class="flex-container"> -->
   <!--   <h3>More</h3> -->
