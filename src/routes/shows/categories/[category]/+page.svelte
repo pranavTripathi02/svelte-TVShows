@@ -1,35 +1,26 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
-
   import { page } from "$app/stores";
   import Template from "../../Template.svelte";
   import HorizontalCard from "../../../../components/HorizontalCard.svelte";
+  import SectionHeader from "../../../../components/SectionHeader.svelte";
 
   let { data } = $props();
-  let { shows } = $derived(data);
-  // $: console.log(shows);
+  const { shows } = data;
   const category = $page.params.category;
-  let catShows = $derived(shows.filter((show) => show.genres.includes(category)));
-  run(() => {
-    console.log(category, catShows);
-  });
+  const catShows = $derived(
+    shows.filter((show) => show.genres.includes(category)),
+  );
 </script>
 
-<Template>
-  {#snippet top()}
-    <div >
-      <h1 class="title">Show Charts</h1>
-      <h2>{category}</h2>
-    </div>
-  {/snippet}
-  {#snippet content()}
-    <div >
-      {#each catShows as show}
-        <HorizontalCard {show} details={false} />
-      {/each}
-    </div>
-  {/snippet}
-</Template>
+<div class="my-12">
+  <h2 class="text-lg">Shows by Category</h2>
+  <SectionHeader title={category} aria-label="Selected Category" />
+</div>
+<div class="flex flex-col gap-4">
+  {#each catShows as show}
+    <HorizontalCard {show} />
+  {/each}
+</div>
 
 <style>
 </style>
